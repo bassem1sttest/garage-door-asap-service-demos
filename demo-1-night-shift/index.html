@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="color-scheme" content="dark light" />
   <title>Garage Door ASAP Service | 24/7 Garage Door Repair in Central Florida</title>
-  <meta name="description" content="Fast, reliable garage door repair across Central Florida. Same-day service, 24/7 emergencies, lowest prices in town, lifetime warranty on parts. Family-owned, 30 years. Call (877) 787-7121." />
+  <meta name="description" content="Same-day garage door repair across Central Florida, open 24/7. Springs, openers, rollers, off-track doors and tune-ups. Family-owned for 30 years. Call (877) 787-7121." />
   <meta name="theme-color" content="#09090b" />
   <script>document.documentElement.classList.add('js')</script>
-  <link rel="preload" as="image" type="image/avif" href="../assets/img/home-dusk-1600.avif" imagesrcset="../assets/img/home-dusk-640.avif 640w, ../assets/img/home-dusk-1080.avif 1080w, ../assets/img/home-dusk-1600.avif 1600w, ../assets/img/home-dusk-2200.avif 2200w" imagesizes="100vw" fetchpriority="high" />
+  <link rel="preload" as="image" type="image/avif" href="../assets/img/hero-doors-1500.avif" imagesrcset="../assets/img/hero-doors-1080.avif 1080w, ../assets/img/hero-doors-1500.avif 1500w" imagesizes="(orientation: portrait) 200vw, 100vw" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="./fonts/archivo-latin.woff2" crossorigin />
   <link rel="stylesheet" href="./styles.css" />
   <link rel="icon" type="image/webp" href="../assets/img/mascot-head-96.webp" />
@@ -16,23 +16,6 @@
 
 <body class="bg-ink-950 font-sans text-zinc-300 antialiased pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0">
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:text-ink-950">Skip to content</a>
-
-  <!-- ============ Top bar ============ -->
-  <div class="hidden border-b border-white/5 bg-ink-950 text-[13px] md:block">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2.5">
-      <p class="flex items-center gap-2 text-zinc-400">
-        <span class="ping relative inline-block size-2 rounded-full bg-emerald-400"></span>
-        Technicians on call 24/7 &middot; Same-day service across Central Florida
-      </p>
-      <div class="flex items-center gap-6 text-zinc-400">
-        <a href="mailto:info@garagedoorasapservice.com" class="transition hover:text-white">info@garagedoorasapservice.com</a>
-        <span class="flex items-center gap-1.5">
-          <svg class="size-3.5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          17649 US-27 Unit 16, Clermont, FL
-        </span>
-      </div>
-    </div>
-  </div>
 
   <!-- ============ Header ============ -->
   <header id="header" class="site-header sticky top-0 z-50 border-b border-transparent">
@@ -48,10 +31,10 @@
 
       <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
         <a href="#services" class="px-4 py-2 text-sm font-medium text-zinc-300 transition hover:text-white">Services</a>
-        <a href="#springs" class="px-4 py-2 text-sm font-medium text-zinc-300 transition hover:text-white">Springs</a>
-        <a href="#crew" class="px-4 py-2 text-sm font-medium text-zinc-300 transition hover:text-white">About</a>
+        <a href="#about" class="px-4 py-2 text-sm font-medium text-zinc-300 transition hover:text-white">About</a>
         <a href="#reviews" class="px-4 py-2 text-sm font-medium text-zinc-300 transition hover:text-white">Reviews</a>
-        <a href="#areas" class="px-4 py-2 text-sm font-medium text-zinc-300 transition hover:text-white">Service Areas</a>
+        <a href="#areas" class="px-4 py-2 text-sm font-medium text-zinc-300 transition hover:text-white">Areas</a>
+        <a href="#faq" class="px-4 py-2 text-sm font-medium text-zinc-300 transition hover:text-white">FAQ</a>
       </nav>
 
       <div class="flex items-center gap-2">
@@ -69,439 +52,346 @@
       <div class="overflow-hidden">
         <nav class="mx-5 mb-4 grid gap-1 border border-white/10 bg-ink-900 p-2" aria-label="Mobile">
           <a href="#services" class="px-4 py-3 font-medium text-zinc-200 hover:bg-white/5">Services</a>
-          <a href="#springs" class="px-4 py-3 font-medium text-zinc-200 hover:bg-white/5">Springs</a>
-          <a href="#crew" class="px-4 py-3 font-medium text-zinc-200 hover:bg-white/5">About</a>
+          <a href="#about" class="px-4 py-3 font-medium text-zinc-200 hover:bg-white/5">About</a>
           <a href="#reviews" class="px-4 py-3 font-medium text-zinc-200 hover:bg-white/5">Reviews</a>
-          <a href="#areas" class="px-4 py-3 font-medium text-zinc-200 hover:bg-white/5">Service Areas</a>
-          <a href="#contact" class="px-4 py-3 font-medium text-zinc-200 hover:bg-white/5">Contact</a>
+          <a href="#areas" class="px-4 py-3 font-medium text-zinc-200 hover:bg-white/5">Areas</a>
+          <a href="#faq" class="px-4 py-3 font-medium text-zinc-200 hover:bg-white/5">FAQ</a>
+          <a href="#contact" class="px-4 py-3 font-medium text-zinc-200 hover:bg-white/5">Free quote</a>
         </nav>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <!-- ============ Hero: full-bleed photo behind a rolling garage door ============ -->
-    <section class="hero relative isolate flex min-h-[calc(100svh-72px)] items-center overflow-hidden lg:min-h-[calc(100vh-112px)]">
+    <!-- ============ HERO (dark): full-bleed photo of real garage doors ============ -->
+    <section class="hero theme-dark relative isolate flex min-h-[calc(100svh-72px)] items-center overflow-hidden">
       <picture>
-      <source type="image/avif" sizes="100vw" srcset="../assets/img/home-dusk-640.avif 640w, ../assets/img/home-dusk-1080.avif 1080w, ../assets/img/home-dusk-1600.avif 1600w, ../assets/img/home-dusk-2200.avif 2200w" />
+      <source type="image/avif" sizes="(orientation: portrait) 200vw, 100vw" srcset="../assets/img/hero-doors-640.avif 640w, ../assets/img/hero-doors-1080.avif 1080w, ../assets/img/hero-doors-1500.avif 1500w" />
       <img
-        src="../assets/img/home-dusk-1600.webp"
-        srcset="../assets/img/home-dusk-640.webp 640w, ../assets/img/home-dusk-1080.webp 1080w, ../assets/img/home-dusk-1600.webp 1600w, ../assets/img/home-dusk-2200.webp 2200w"
-        sizes="100vw" width="1600" height="1067" fetchpriority="high" decoding="async"
-        alt="Family home lit up at dusk"
-        class="hero-img absolute inset-0 -z-20 size-full object-cover object-[70%_center]" />
+        src="../assets/img/hero-doors-1500.webp"
+        srcset="../assets/img/hero-doors-640.webp 640w, ../assets/img/hero-doors-1080.webp 1080w, ../assets/img/hero-doors-1500.webp 1500w"
+        sizes="(orientation: portrait) 200vw, 100vw" width="1500" height="720" fetchpriority="high" decoding="async"
+        alt="House with two white carriage-style garage doors"
+        class="hero-img absolute inset-x-0 top-0 -z-20 h-[48%] w-full object-cover object-[62%_70%] lg:inset-0 lg:h-full lg:object-[62%_center]" />
       </picture>
-      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-ink-950 via-ink-950/85 to-ink-950/20 lg:via-ink-950/70 lg:to-transparent" aria-hidden="true"></div>
-      <div class="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-t from-ink-950 to-transparent" aria-hidden="true"></div>
+      <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,transparent_0%,transparent_22%,var(--color-ink-950)_48%)] lg:bg-[linear-gradient(to_right,var(--color-ink-950),rgb(9_9_11/.8)_45%,transparent)]" aria-hidden="true"></div>
       <div class="shutter" aria-hidden="true"><span class="shutter-handle"></span></div>
 
-      <div class="mx-auto grid w-full max-w-7xl items-end gap-12 px-5 py-20 md:px-6 lg:grid-cols-[1.25fr_1fr] lg:py-24">
+      <div class="mx-auto grid w-full max-w-7xl items-end gap-12 px-5 pb-10 pt-[36svh] md:px-6 lg:grid-cols-[1.3fr_1fr] lg:py-20">
         <div>
-          <p class="fade-up inline-flex items-center gap-2 border border-brand-500/40 bg-ink-950/60 py-1.5 pl-1.5 pr-4 text-[13px] font-semibold text-brand-300 backdrop-blur" style="--i:0">
-            <span class="bg-brand-600 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">24/7</span>
-            Emergency garage door repair
-          </p>
+          <p class="fade-up tag" style="--i:0"><span class="ping relative inline-block size-2 rounded-full bg-emerald-400"></span>Open 24/7</p>
 
-          <h1 class="mt-6 text-[2.9rem] font-black uppercase leading-[0.92] tracking-tight text-white font-wide sm:text-7xl xl:text-[5.4rem]">
+          <h1 class="mt-6 text-[2.2rem] font-black uppercase leading-[0.95] tracking-tight text-white font-wide sm:text-6xl lg:text-[3.4rem] xl:text-[4.3rem]">
             <span class="word"><span style="--i:0">Stuck</span></span>
             <span class="word"><span style="--i:1">door?</span></span><br />
-            <span class="word"><span style="--i:2">We're</span></span>
-            <span class="word"><span style="--i:3">there</span></span><br />
-            <span class="word"><span class="text-brand-500" style="--i:4">ASAP.</span></span>
+            <span class="word"><span style="--i:2">Fixed</span></span>
+            <span class="word"><span class="text-brand-500" style="--i:3">ASAP.</span></span>
           </h1>
 
-          <p class="fade-up mt-6 max-w-xl text-lg leading-relaxed text-zinc-300" style="--i:2">
-            Quality, fast and reliable garage door service &amp; repair in Central Florida. Lowest prices in town, fine workmanship and same-day service — from a family that's been fixing doors for 30 years.
-          </p>
+          <p class="fade-up lead mt-6 text-zinc-200" style="--i:2">Same-day garage door repair across Central Florida.</p>
 
           <div class="fade-up mt-9 flex flex-col gap-3 sm:flex-row" style="--i:3">
-            <a href="tel:8777877121" class="btn btn-primary btn-shine group">
-              <svg class="size-5 transition-transform duration-500 group-hover:rotate-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Call (877) 787-7121
+            <a href="tel:8777877121" class="btn btn-primary btn-shine">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call now
             </a>
-            <a href="#contact" class="btn btn-ghost group">
+            <a href="#contact" class="btn btn-ghost">
               Get a free quote
-              <svg class="size-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Live cards -->
-        <div class="fade-up hidden gap-3 sm:grid sm:grid-cols-2 lg:grid-cols-1 lg:justify-items-end" style="--i:4">
-          <div class="float-slow w-full max-w-sm border border-white/10 bg-ink-950/70 p-5 backdrop-blur-md">
+        <div class="fade-up hidden lg:flex lg:justify-end" style="--i:4" aria-hidden="true">
+          <div class="float-slow glass w-full max-w-sm p-5">
             <div class="flex items-center gap-3">
-              <img src="../assets/img/tech-install.webp" width="515" height="403" alt="" loading="lazy" decoding="async" class="size-12 object-cover" />
+              <img src="../assets/img/tech-install.webp" width="515" height="403" alt="" decoding="async" class="size-12 object-cover" />
               <div>
                 <p class="text-sm font-bold text-white">Technician en route</p>
-                <p class="text-xs text-zinc-400">Same-day service &middot; on-the-spot repair</p>
+                <p class="text-xs text-zinc-400">Spring repair &middot; Winter Garden</p>
               </div>
             </div>
-            <div class="mt-4 h-1 overflow-hidden bg-white/10"><div class="progress-run h-full bg-gradient-to-r from-brand-600 to-brand-400"></div></div>
-          </div>
-          <div class="float-slower w-full max-w-sm border border-white/10 bg-ink-950/70 p-5 backdrop-blur-md">
-            <div class="flex items-center justify-between">
-              <div class="flex gap-0.5 text-amber-400" aria-label="5 out of 5 stars">
-                <svg class="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-              <span class="text-xs font-semibold text-zinc-400">5.0 &middot; 600 reviews</span>
-            </div>
-            <p class="mt-3 text-sm leading-snug text-zinc-200">“They came in two hours, fixed the garage door and had the friendliest workers ever!”</p>
-            <p class="mt-2 text-xs text-zinc-500">Carole Engels &middot; Google</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ Guarantee marquee ============ -->
-    <section class="border-y border-white/5 bg-ink-900 py-5" aria-label="Our guarantees">
-      <div class="marquee overflow-hidden">
-        <ul class="marquee-track flex w-max items-center gap-12 pr-12 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-400 font-wide">
-          <li class="flex items-center gap-3"><span class="size-1.5 bg-brand-500"></span>Best price guaranteed</li>
-          <li class="flex items-center gap-3"><span class="size-1.5 bg-brand-500"></span>24/7 emergency service</li>
-          <li class="flex items-center gap-3"><span class="size-1.5 bg-brand-500"></span>100% satisfaction</li>
-          <li class="flex items-center gap-3"><span class="size-1.5 bg-brand-500"></span>Lifetime warranty on parts</li>
-          <li class="flex items-center gap-3"><span class="size-1.5 bg-brand-500"></span>American-made parts</li>
-          <li class="flex items-center gap-3"><span class="size-1.5 bg-brand-500"></span>Licensed, bonded &amp; insured</li>
-          <li class="flex items-center gap-3"><span class="size-1.5 bg-brand-500"></span>Same-day service</li>
-          <li class="flex items-center gap-3" aria-hidden="true"><span class="size-1.5 bg-brand-500"></span>Best price guaranteed</li>
-          <li class="flex items-center gap-3" aria-hidden="true"><span class="size-1.5 bg-brand-500"></span>24/7 emergency service</li>
-          <li class="flex items-center gap-3" aria-hidden="true"><span class="size-1.5 bg-brand-500"></span>100% satisfaction</li>
-          <li class="flex items-center gap-3" aria-hidden="true"><span class="size-1.5 bg-brand-500"></span>Lifetime warranty on parts</li>
-          <li class="flex items-center gap-3" aria-hidden="true"><span class="size-1.5 bg-brand-500"></span>American-made parts</li>
-          <li class="flex items-center gap-3" aria-hidden="true"><span class="size-1.5 bg-brand-500"></span>Licensed, bonded &amp; insured</li>
-          <li class="flex items-center gap-3" aria-hidden="true"><span class="size-1.5 bg-brand-500"></span>Same-day service</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ 01 Services: photo cards ============ -->
-    <section id="services" class="section">
+    <!-- ============ 01 SERVICES (light): service menu + live scene ============ -->
+    <section id="services" class="theme-light section fit">
       <div class="mx-auto max-w-7xl px-5 md:px-6">
-        <div class="flex flex-col justify-between gap-6 border-b border-white/10 pb-10 md:flex-row md:items-end">
-          <div class="max-w-2xl">
-            <p data-reveal class="sec-num">01 <span>What we do</span></p>
-            <h2 data-reveal style="--d:1" class="h2 mt-4">Every garage door problem. <span class="text-zinc-600">One call.</span></h2>
+        <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <p data-reveal class="tag"><b>01</b>Services</p>
+            <h2 data-reveal style="--d:1" class="h2 mt-5">Every fix, one call.</h2>
           </div>
-          <p data-reveal style="--d:2" class="max-w-sm text-zinc-400">On-the-spot repairs and replacements by a crew that's highly motivated, trained and experienced to handle any type of garage door problem.</p>
+          <p data-reveal style="--d:2" class="lead md:text-right">Pick a service to see what we do.</p>
         </div>
 
-        <div class="rail mt-10 grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-3" aria-label="Services">
-          <a href="#springs" data-reveal style="--d:0" class="svc spot group">
-            <div class="svc-media"><img src="../assets/img/part-springs.webp" width="600" height="378" alt="Broken torsion springs" loading="lazy" decoding="async" /></div>
-            <div class="svc-body">
-              <span class="svc-idx">01</span>
-              <h3>Spring Replacement</h3>
-              <p>Springs are the parts most likely to break. We install springs rated up to 50,000 cycles and balance the door.</p>
-              <span class="svc-link">Spring facts <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <div class="mt-7 grid gap-5 lg:mt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.7fr)] lg:gap-8">
+          <div data-reveal="left" style="--d:2" class="flex min-w-0 flex-col">
+            <div class="svc-list" role="tablist" aria-label="Services" aria-orientation="vertical">
+              <button class="svc-tab" role="tab" id="tab-0" aria-controls="sc-0" aria-selected="true" data-service="Spring replacement"><span>01</span>Springs<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <button class="svc-tab" role="tab" id="tab-1" aria-controls="sc-1" aria-selected="false" tabindex="-1" data-service="Opener repair"><span>02</span>Opener repair<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <button class="svc-tab" role="tab" id="tab-2" aria-controls="sc-2" aria-selected="false" tabindex="-1" data-service="Opener replacement"><span>03</span>New opener<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <button class="svc-tab" role="tab" id="tab-3" aria-controls="sc-3" aria-selected="false" tabindex="-1" data-service="Roller replacement"><span>04</span>Rollers<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <button class="svc-tab" role="tab" id="tab-4" aria-controls="sc-4" aria-selected="false" tabindex="-1" data-service="Shifted door repair"><span>05</span>Off-track door<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <button class="svc-tab" role="tab" id="tab-5" aria-controls="sc-5" aria-selected="false" tabindex="-1" data-service="General maintenance"><span>06</span>Tune-up<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             </div>
-          </a>
-          <a href="#contact" data-reveal style="--d:1" class="svc spot group">
-            <div class="svc-media"><img src="../assets/img/tech-install.webp" width="515" height="403" alt="Technician repairing a garage door opener" loading="lazy" decoding="async" /></div>
-            <div class="svc-body">
-              <span class="svc-idx">02</span>
-              <h3>Opener Repair</h3>
-              <p>Circuit boards, motors, limit switches, trolleys, drive trains and belts — or just the adjustment it needs.</p>
-              <span class="svc-link">Book a repair <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-          <a href="#contact" data-reveal style="--d:2" class="svc spot group">
-            <div class="svc-media"><img src="../assets/img/part-opener.webp" width="400" height="300" alt="New LiftMaster garage door opener mounted on the ceiling" loading="lazy" decoding="async" /></div>
-            <div class="svc-body">
-              <span class="svc-idx">03</span>
-              <h3>Opener Replacement</h3>
-              <p>All models and brands. Heavy-duty hardware, high-end keypads and the latest security and connectivity features.</p>
-              <span class="svc-link">Upgrade my opener <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-          <a href="#contact" data-reveal style="--d:0" class="svc spot group">
-            <div class="svc-media svc-media--product"><img src="../assets/img/part-rollers.webp" width="300" height="244" alt="Nickel-plated nylon garage door rollers" loading="lazy" decoding="async" /></div>
-            <div class="svc-body">
-              <span class="svc-idx">04</span>
-              <h3>Roller Replacement</h3>
-              <p>High-grade nickel-plated rollers that outlast the 10,000-cycle average — for a quiet, smooth door.</p>
-              <span class="svc-link">Quiet my door <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-          <a href="#work" data-reveal style="--d:1" class="svc spot group">
-            <div class="svc-media"><img src="../assets/img/job-shifted-before.webp" width="960" height="720" alt="Garage door knocked off its tracks" loading="lazy" decoding="async" /></div>
-            <div class="svc-body">
-              <span class="svc-idx">05</span>
-              <h3>Shifted Door Repair</h3>
-              <p>Off-track or crooked door? We find the cause — usually a cable — straighten tracks and realign the rollers.</p>
-              <span class="svc-link">See a real job <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-          <a href="#contact" data-reveal style="--d:2" class="svc spot group">
-            <div class="svc-media"><img src="../assets/img/tools-wall-640.webp" width="640" height="427" alt="Wall of professional repair tools" loading="lazy" decoding="async" /></div>
-            <div class="svc-body">
-              <span class="svc-idx">06</span>
-              <h3>General Maintenance</h3>
-              <p>Full inspection plus UL 325 safety-reverse test, balance check, lubrication and adjustments — adds years to your door.</p>
-              <span class="svc-link">Schedule a tune-up <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-        </div>
-
-        <p class="rail-hint mt-3 items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Swipe for all 6 services <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></p>
-
-        <!-- Emergency strip with photo -->
-        <div data-reveal class="relative mt-6 sm:mt-px flex flex-col items-start justify-between gap-6 overflow-hidden bg-brand-700 p-7 sm:flex-row sm:items-center md:p-10">
-          <img src="../assets/img/door-glass.webp" width="1024" height="683" alt="" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover opacity-25 mix-blend-multiply" />
-          <div class="relative">
-            <p class="text-2xl font-black uppercase tracking-tight text-white font-wide md:text-4xl">Door won't close tonight?</p>
-            <p class="mt-1 text-white/85">We run 24 hours a day, 7 days a week — weekends and holidays included.</p>
+            <a href="#contact" id="bookService" class="btn btn-primary btn-shine mt-4 self-start max-lg:hidden lg:mt-auto">
+              Book this service
+              <svg class="arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
           </div>
-          <a href="tel:8777877121" class="btn btn-light shrink-0 shadow-xl">
-            <span class="ping relative inline-block size-2.5 rounded-full bg-brand-600"></span>
-            Call emergency line
-          </a>
+
+          <div class="stage stage-fit slats [--stage-offset:17rem]" data-tilt>
+            <!-- Springs -->
+            <div class="scene is-active" id="sc-0" role="tabpanel" aria-labelledby="tab-0">
+              <div class="stage-bg"><img class="stage-photo" src="../assets/img/part-springs.webp" width="600" height="378" alt="Broken torsion springs" loading="lazy" decoding="async" /></div>
+              <div class="fcard right-3 top-3 w-[min(82%,320px)] md:right-5 md:top-5" style="--k:0">
+                <p class="fcard-title">Spring replacement</p>
+                <p class="fcard-text">Springs break more than any other part. We fit heavy-duty springs and balance the door.</p>
+              </div>
+              <div class="fcard fcard--accent bottom-4 left-3 w-[min(86%,340px)] md:bottom-6 md:left-5" style="--k:1">
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-zinc-500">Lifespan in open–close cycles</p>
+                <div class="mt-3 flex justify-between text-xs"><span class="text-zinc-500">Typical spring</span><span class="text-zinc-500">10–20k</span></div>
+                <div class="mt-1.5 h-2 bg-zinc-200"><div class="bar h-full bg-zinc-400" style="--w:40%"></div></div>
+                <div class="mt-3 flex justify-between text-xs"><span class="font-bold text-ink-950">ASAP springs</span><span class="font-bold text-brand-600">up to 50k</span></div>
+                <div class="mt-1.5 h-2 bg-zinc-200"><div class="bar h-full bg-gradient-to-r from-brand-700 to-brand-500" style="--w:100%"></div></div>
+              </div>
+            </div>
+            <!-- Opener repair -->
+            <div class="scene" id="sc-1" role="tabpanel" aria-labelledby="tab-1">
+              <div class="stage-bg"><img class="stage-photo" src="../assets/img/tech-install.webp" width="515" height="403" alt="Technician repairing a garage door opener" loading="lazy" decoding="async" /></div>
+              <div class="fcard right-3 top-3 w-[min(82%,320px)] md:right-5 md:top-5" style="--k:0">
+                <p class="fcard-title">Opener repair</p>
+                <p class="fcard-text">Circuit board, motor, limit switches, trolley or belt — or just the adjustment it needs.</p>
+              </div>
+              <div class="fcard fcard--accent bottom-4 left-3 flex items-center gap-3 md:bottom-6 md:left-5" style="--k:1">
+                <span class="fcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span>
+                <span><b class="block text-sm text-ink-950">On-the-spot repair</b><span class="text-xs text-zinc-500">Every make and model</span></span>
+              </div>
+            </div>
+            <!-- Opener replacement -->
+            <div class="scene" id="sc-2" role="tabpanel" aria-labelledby="tab-2">
+              <div class="stage-bg stage-arcs"><img class="stage-photo stage-photo--product" src="../assets/img/part-opener-kit.webp" width="360" height="360" alt="Smart garage door opener with remotes and keypad" loading="lazy" decoding="async" /></div>
+              <div class="fcard right-3 top-3 w-[min(82%,300px)] md:right-5 md:top-5" style="--k:0">
+                <p class="fcard-title">Opener replacement</p>
+                <p class="fcard-text">A new opener installed, programmed and tested.</p>
+              </div>
+              <div class="fcard fcard--accent bottom-4 left-3 md:bottom-6 md:left-5" style="--k:1">
+                <ul class="flex flex-wrap gap-2 text-xs font-bold text-ink-950">
+                  <li class="border border-zinc-200 px-2.5 py-1.5">Wi-Fi &amp; app</li>
+                  <li class="border border-zinc-200 px-2.5 py-1.5">Battery backup</li>
+                  <li class="border border-zinc-200 px-2.5 py-1.5">Keypads</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Rollers -->
+            <div class="scene" id="sc-3" role="tabpanel" aria-labelledby="tab-3">
+              <div class="stage-bg stage-arcs"><img class="stage-photo stage-photo--product" src="../assets/img/part-rollers.webp" width="300" height="244" alt="Nickel-plated nylon garage door rollers" loading="lazy" decoding="async" /></div>
+              <div class="fcard right-3 top-3 w-[min(82%,300px)] md:right-5 md:top-5" style="--k:0">
+                <p class="fcard-title">Roller replacement</p>
+                <p class="fcard-text">High-grade nickel-plated rollers for a quiet, smooth ride.</p>
+              </div>
+              <div class="fcard fcard--accent bottom-4 left-3 flex items-center gap-3 md:bottom-6 md:left-5" style="--k:1">
+                <span class="fcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5zM22 9l-6 6M16 9l6 6"/></svg></span>
+                <span><b class="block text-sm text-ink-950">No more grinding</b><span class="text-xs text-zinc-500">Less strain on your opener</span></span>
+              </div>
+            </div>
+            <!-- Shifted door -->
+            <div class="scene" id="sc-4" role="tabpanel" aria-labelledby="tab-4">
+              <div class="stage-bg"><img class="stage-photo" src="../assets/img/job-shifted-before.webp" width="960" height="720" alt="Garage door knocked off its tracks" loading="lazy" decoding="async" /></div>
+              <div class="fcard right-3 top-3 w-[min(82%,320px)] md:right-5 md:top-5" style="--k:0">
+                <p class="fcard-title">Shifted door repair</p>
+                <p class="fcard-text">Usually a broken cable. We straighten the tracks, realign the rollers and lubricate.</p>
+              </div>
+              <div class="fcard fcard--accent bottom-4 left-3 w-[min(70%,280px)] p-2 md:bottom-6 md:left-5" style="--k:1">
+                <img src="../assets/img/job-before-after.webp" width="600" height="280" alt="Before and after: the same door back on its tracks" loading="lazy" decoding="async" class="w-full" />
+                <p class="px-1 pt-2 text-xs font-bold uppercase tracking-[0.16em] text-zinc-500">Real job &middot; before / after</p>
+              </div>
+            </div>
+            <!-- Maintenance -->
+            <div class="scene" id="sc-5" role="tabpanel" aria-labelledby="tab-5">
+              <div class="stage-bg"><img class="stage-photo" src="../assets/img/tools-wall-1200.webp" width="1200" height="800" alt="Wall of professional repair tools" loading="lazy" decoding="async" /></div>
+              <div class="fcard right-3 top-3 w-[min(82%,320px)] md:right-5 md:top-5" style="--k:0">
+                <p class="fcard-title">General maintenance</p>
+                <p class="fcard-text">Safety-reverse test, balance check, lubrication and adjustments that add years to your door.</p>
+              </div>
+              <div class="fcard fcard--accent bottom-4 left-3 md:bottom-6 md:left-5" style="--k:1">
+                <p class="text-4xl font-black text-ink-950 font-wide">29<span class="text-brand-600">-pt</span></p>
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-zinc-500">Inspection &amp; tune-up</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 02 Springs: data straight from the live site ============ -->
-    <section id="springs" class="relative overflow-hidden border-y border-white/5 bg-ink-900 section">
-      <div class="grid-bg pointer-events-none absolute inset-0" aria-hidden="true"></div>
-      <div class="relative mx-auto grid max-w-7xl gap-14 px-5 md:px-6 lg:grid-cols-2 lg:gap-20">
-        <div>
-          <p data-reveal class="sec-num">02 <span>Springs that last</span></p>
-          <h2 data-reveal style="--d:1" class="h2 mt-4">Up to <span class="text-brand-500">5&times;</span> the life of a standard spring.</h2>
-          <p data-reveal style="--d:2" class="mt-6 max-w-lg text-lg leading-relaxed text-zinc-400">A spring's life is measured in cycles — one open and close. The minimum spec is 10,000 cycles; most springs last 10,000–20,000. We install springs rated up to <b class="text-white">50,000 cycles</b>.</p>
+    <!-- ============ 02 ABOUT (dark): full-bleed crew banner + glass cards ============ -->
+    <section id="about" class="theme-dark fit relative isolate overflow-hidden" data-observe>
+      <picture><source type="image/avif" srcset="../assets/img/team-trucks.avif" /><img src="../assets/img/team-trucks.webp" width="960" height="427" alt="The Garage Door ASAP crew with their service trucks" loading="lazy" decoding="async" class="about-bg absolute inset-0 -z-20 size-full object-cover object-[50%_55%]" /></picture>
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-ink-950/90 via-ink-950/55 to-ink-950" aria-hidden="true"></div>
 
-          <div data-reveal style="--d:3" class="bars mt-10 space-y-6">
-            <div>
-              <div class="flex justify-between text-sm"><span class="font-semibold text-zinc-300">Minimum spec</span><span class="text-zinc-500">10,000 cycles</span></div>
-              <div class="mt-2 h-3 bg-white/5"><div class="bar h-full bg-zinc-600" style="--w:20%"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between text-sm"><span class="font-semibold text-zinc-300">Typical spring</span><span class="text-zinc-500">10,000 – 20,000 cycles</span></div>
-              <div class="mt-2 h-3 bg-white/5"><div class="bar h-full bg-zinc-400" style="--w:40%"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between text-sm"><span class="font-bold text-white">Garage Door ASAP springs</span><span class="font-bold text-brand-400">up to 50,000 cycles</span></div>
-              <div class="mt-2 h-3 bg-white/5"><div class="bar h-full bg-gradient-to-r from-brand-700 to-brand-500" style="--w:100%"></div></div>
-            </div>
-          </div>
+      <div class="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between gap-8 px-5 py-10 md:px-6 lg:py-16">
+        <div class="max-w-2xl">
+          <p data-reveal class="tag"><b>02</b>About us</p>
+          <h2 data-reveal style="--d:1" class="h2 mt-5">Family, not franchise.</h2>
+          <p data-reveal style="--d:2" class="lead mt-5 text-zinc-300">No franchise fees, so you get the best price in town, with American-made parts when available.</p>
+          <a data-reveal style="--d:3" href="#contact" class="btn btn-ghost mt-8">
+            Get a free quote
+            <svg class="arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
         </div>
 
-        <div class="grid content-start gap-px bg-white/10">
-          <figure data-reveal="scale" class="relative overflow-hidden bg-ink-950">
-            <img src="../assets/img/stock-springs.webp" width="400" height="245" alt="Racks of new torsion springs in stock" loading="lazy" decoding="async" class="aspect-[16/9] w-full object-cover" />
-            <figcaption class="absolute bottom-0 left-0 bg-ink-950/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-300 backdrop-blur">Every size, in stock</figcaption>
+        <div class="grid gap-3 sm:grid-cols-3">
+          <div data-reveal="lift" style="--d:0" class="glass p-6">
+            <p class="text-5xl font-black text-white font-wide"><span data-count="30">30</span></p>
+            <p class="mt-1 text-xs font-bold uppercase tracking-[0.16em] text-zinc-400">Years in business</p>
+          </div>
+          <div data-reveal="lift" style="--d:2" class="glass flex items-center gap-4 p-6 shadow-[0_6px_0_var(--color-brand-600)]">
+            <span class="fcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.2 7 22l5-3 5 3-1.2-8.8"/></svg></span>
+            <span><b class="block text-white">Lifetime warranty</b><span class="text-sm text-zinc-400">On every part we install</span></span>
+          </div>
+          <div data-reveal="lift" style="--d:4" class="glass flex items-center gap-4 p-6">
+            <span class="fcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <span><b class="block text-white">Licensed, bonded &amp; insured</b><span class="text-sm text-zinc-400">100% satisfaction guarantee</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 REVIEWS (light): centered card deck ============ -->
+    <section id="reviews" class="theme-light section fit">
+      <div class="mx-auto max-w-3xl px-5 text-center md:px-6">
+        <p data-reveal class="tag"><b>03</b>Reviews</p>
+        <h2 data-reveal style="--d:1" class="h2 mt-5">5.0 stars, 600 reviews.</h2>
+        <p data-reveal style="--d:2" class="lead mx-auto mt-5">Rated by homeowners on Google, Yelp, Facebook and Angi.</p>
+
+        <div id="deck" class="deck mt-4 text-left" aria-live="polite">
+          <figure class="deck-card border border-zinc-200 bg-white p-7 shadow-[0_30px_60px_-30px_rgba(9,9,11,.35)] sm:p-9" style="--pos:0">
+            <div class="text-lg tracking-widest text-amber-500" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="mt-3 text-xl font-semibold leading-snug text-ink-950 sm:text-2xl">“They came in two hours, fixed the garage door and had the friendliest workers ever! Would recommend to anyone!”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 text-sm"><span class="grid size-10 place-items-center bg-brand-600 font-bold text-white">CE</span><span><b class="block text-ink-950">Carole Engels</b><span class="flex items-center gap-1.5 text-zinc-500"><svg class="size-4 shrink-0" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>Google review</span></span></figcaption>
           </figure>
-          <div class="grid gap-px bg-white/10 sm:grid-cols-2">
-            <div data-reveal style="--d:1" class="bg-ink-950 p-6">
-              <p class="font-bold text-white">Why replace both springs?</p>
-              <p class="mt-2 text-sm leading-relaxed text-zinc-400">When one breaks, the other carries double the load and usually fails soon after. Replacing both saves a second visit.</p>
-            </div>
-            <div data-reveal style="--d:2" class="bg-ink-950 p-6">
-              <p class="font-bold text-white">Never DIY a spring</p>
-              <p class="mt-2 text-sm leading-relaxed text-zinc-400">Springs are under extreme tension. Without the right tools and procedures, they can seriously injure you or damage property.</p>
-            </div>
-          </div>
+          <figure class="deck-card border border-zinc-200 bg-white p-7 shadow-[0_30px_60px_-30px_rgba(9,9,11,.35)] sm:p-9" style="--pos:1">
+            <div class="text-lg tracking-widest text-amber-500" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="mt-3 text-xl font-semibold leading-snug text-ink-950 sm:text-2xl">“Service man Rami was very informative and polite. He did not push to sell. Job well done!”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 text-sm"><span class="grid size-10 place-items-center bg-ink-950 font-bold text-white">JD</span><span><b class="block text-ink-950">Joann Deronda</b><span class="flex items-center gap-1.5 text-zinc-500"><svg class="size-4 shrink-0" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>Google review</span></span></figcaption>
+          </figure>
+          <figure class="deck-card border border-zinc-200 bg-white p-7 shadow-[0_30px_60px_-30px_rgba(9,9,11,.35)] sm:p-9" style="--pos:2">
+            <div class="text-lg tracking-widest text-amber-500" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="mt-3 text-xl font-semibold leading-snug text-ink-950 sm:text-2xl">“Came out right away, even on Memorial Day, and just charged the standard service call price plus parts.”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 text-sm"><span class="grid size-10 place-items-center bg-zinc-500 font-bold text-white">MB</span><span><b class="block text-ink-950">Margaret Black</b><span class="flex items-center gap-1.5 text-zinc-500"><svg class="size-4 shrink-0" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>Google review</span></span></figcaption>
+          </figure>
+        </div>
+
+        <div data-reveal style="--d:4" class="mt-6 flex items-center justify-center gap-3">
+          <button id="deckPrev" class="btn btn-icon" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <p class="w-16 text-sm font-bold text-zinc-500"><span id="deckNum" class="text-ink-950">1</span> / 3</p>
+          <button id="deckNext" class="btn btn-icon" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
     </section>
 
-    <!-- ============ 03 Real work ============ -->
-    <section id="work" class="section">
-      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-6 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
-        <figure data-reveal="scale" class="relative">
-          <img src="../assets/img/job-before-after.webp" width="600" height="280" alt="Before: a garage door pushed off its tracks. After: the same door repaired and closed." loading="lazy" decoding="async" class="w-full border border-white/10" />
-          <figcaption class="mt-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500"><span class="size-1.5 bg-brand-500"></span>Real job &middot; shifted door, Central Florida</figcaption>
-        </figure>
+    <!-- ============ 04 SERVICE AREA (dark): text + interactive map ============ -->
+    <section id="areas" class="theme-dark section fit">
+      <div class="mx-auto grid max-w-7xl items-center gap-8 px-5 md:px-6 lg:grid-cols-2 lg:gap-20">
         <div>
-          <p data-reveal class="sec-num">03 <span>Real work</span></p>
-          <h2 data-reveal style="--d:1" class="h2 mt-4">Off track to back on — same day.</h2>
-          <p data-reveal style="--d:2" class="mt-6 text-lg leading-relaxed text-zinc-400">An off-track door isn't just ugly — it's unstable and dangerous. Never run it by hand or with the opener. Here's what our technicians do:</p>
-          <ol data-reveal style="--d:3" class="mt-8 divide-y divide-white/10 border-y border-white/10">
-            <li class="flex gap-5 py-4"><span class="font-wide text-sm font-black text-brand-500">01</span><span class="text-zinc-300">Find the cause — broken cables, bent tracks or tracks pulling off the wall.</span></li>
-            <li class="flex gap-5 py-4"><span class="font-wide text-sm font-black text-brand-500">02</span><span class="text-zinc-300">Adjust or straighten the tracks and fix the roller alignment.</span></li>
-            <li class="flex gap-5 py-4"><span class="font-wide text-sm font-black text-brand-500">03</span><span class="text-zinc-300">Clean the tracks and lubricate with commercial-grade oil.</span></li>
-            <li class="flex gap-5 py-4"><span class="font-wide text-sm font-black text-brand-500">04</span><span class="text-zinc-300">Final assessment so no component is missing or worn.</span></li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 04 Crew ============ -->
-    <section id="crew" class="relative isolate overflow-hidden">
-      <picture><source type="image/avif" srcset="../assets/img/team-trucks.avif" /><img src="../assets/img/team-trucks.webp" width="960" height="427" alt="The Garage Door ASAP crew with their service trucks in front of the Clermont shop" loading="lazy" decoding="async" class="absolute inset-0 -z-20 size-full object-cover object-[50%_60%]" /></picture>
-      <div class="absolute inset-0 -z-10 bg-gradient-to-t from-ink-950 via-ink-950/75 to-ink-950/30" aria-hidden="true"></div>
-      <div class="mx-auto max-w-7xl px-5 pb-16 pt-56 md:px-6 lg:pt-80">
-        <p data-reveal class="sec-num">04 <span>Who we are</span></p>
-        <div class="mt-4 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-end">
-          <h2 data-reveal style="--d:1" class="h2">Family-owned.<br />Trusted across <span class="text-brand-500">Central Florida.</span></h2>
-          <p data-reveal style="--d:2" class="text-lg leading-relaxed text-zinc-300">A genuine family-owned and operated company with 30 years in the business. Lower overhead than big franchises means the best possible price — and we live on word of mouth, so every job counts.</p>
-        </div>
-
-        <div class="mt-14 grid grid-cols-2 gap-px border border-white/10 bg-white/10 lg:grid-cols-4">
-          <div data-reveal style="--d:0" class="bg-ink-950/80 px-5 py-8 backdrop-blur">
-            <p class="text-5xl font-black text-white font-wide md:text-6xl"><span data-count="30">0</span><span class="text-brand-500">+</span></p>
-            <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Years experience</p>
-          </div>
-          <div data-reveal style="--d:1" class="bg-ink-950/80 px-5 py-8 backdrop-blur">
-            <p class="text-5xl font-black text-white font-wide md:text-6xl"><span data-count="600">0</span></p>
-            <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">5-star reviews</p>
-          </div>
-          <div data-reveal style="--d:2" class="bg-ink-950/80 px-5 py-8 backdrop-blur">
-            <p class="text-5xl font-black text-white font-wide md:text-6xl"><span data-count="70">0</span><span class="text-brand-500">+</span></p>
-            <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Cities served</p>
-          </div>
-          <div data-reveal style="--d:3" class="bg-ink-950/80 px-5 py-8 backdrop-blur">
-            <p class="text-5xl font-black text-white font-wide md:text-6xl"><span data-count="24">0</span><span class="text-brand-500">/7</span></p>
-            <p class="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Emergency line</p>
-          </div>
-        </div>
-
-        <ul class="mt-px grid gap-px border-x border-b border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-          <li data-reveal style="--d:0" class="flex items-center gap-3 bg-ink-950 px-5 py-4 text-sm font-semibold text-zinc-200"><svg class="size-5 shrink-0 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Licensed, bonded &amp; insured</li>
-          <li data-reveal style="--d:1" class="flex items-center gap-3 bg-ink-950 px-5 py-4 text-sm font-semibold text-zinc-200"><svg class="size-5 shrink-0 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg>Best price guaranteed</li>
-          <li data-reveal style="--d:2" class="flex items-center gap-3 bg-ink-950 px-5 py-4 text-sm font-semibold text-zinc-200"><svg class="size-5 shrink-0 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.2 7 22l5-3 5 3-1.2-8.8"/></svg>Lifetime warranty on all parts</li>
-          <li data-reveal style="--d:3" class="flex items-center gap-3 bg-ink-950 px-5 py-4 text-sm font-semibold text-zinc-200"><svg class="size-5 shrink-0 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 22V4"/><path d="M4 4h13l-2 4 2 4H4"/></svg>American-made when available</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ 05 Reviews ============ -->
-    <section id="reviews" class="section">
-      <div class="mx-auto max-w-7xl px-5 md:px-6">
-        <div class="grid gap-10 lg:grid-cols-[.8fr_2fr] lg:gap-14">
-          <div>
-            <p data-reveal class="sec-num">05 <span>Testimonials</span></p>
-            <h2 data-reveal style="--d:1" class="h2 mt-4">Our clients love us</h2>
-            <div data-reveal style="--d:2" class="mt-8 border border-white/10 bg-ink-900 p-7">
-              <p class="text-7xl font-black text-white font-wide">5.0</p>
-              <div class="mt-2 flex gap-1 text-amber-400" aria-label="5 out of 5 stars">
-                <svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-              <p class="mt-3 text-sm text-zinc-400">Based on 600 reviews across</p>
-              <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-zinc-300">
-                <span class="border border-white/10 px-3 py-1.5">Google</span>
-                <span class="border border-white/10 px-3 py-1.5">Yelp</span>
-                <span class="border border-white/10 px-3 py-1.5">Facebook</span>
-                <span class="border border-white/10 px-3 py-1.5">Angi</span>
-              </div>
+          <p data-reveal class="tag"><b>04</b>Service area</p>
+          <h2 data-reveal style="--d:1" class="h2 mt-5">70+ cities, 6 counties.</h2>
+          <p data-reveal style="--d:2" class="lead mt-5">Orange, Seminole, Osceola, Lake, Volusia and Pinellas, from The Villages to Daytona Beach.</p>
+          <form id="cityCheck" data-reveal style="--d:3" class="mt-6 max-w-md" novalidate>
+            <label for="cityInput" class="mb-2 block text-sm font-semibold text-zinc-300 max-sm:sr-only">Check your city</label>
+            <div class="flex gap-2">
+              <input id="cityInput" list="cityOptions" autocomplete="off" placeholder="e.g. Winter Garden" class="field min-w-0 flex-1" />
+              <datalist id="cityOptions"></datalist>
+              <button class="btn btn-primary shrink-0">Check</button>
             </div>
-          </div>
+            <p id="cityResult" class="mt-3 min-h-6 text-sm font-semibold" aria-live="polite"></p>
+          </form>
+        </div>
 
-          <div class="grid gap-px bg-white/10 md:grid-cols-2">
-            <figure data-reveal style="--d:0" class="flex flex-col bg-ink-900 p-8 md:row-span-2">
-              <svg class="size-10 text-brand-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.6 6C6.5 7.3 4.5 10 4.5 13.6V18h6v-6H7.6c.2-2 1.4-3.5 3.2-4.3L9.6 6zm9 0c-3.1 1.3-5.1 4-5.1 7.6V18h6v-6h-2.9c.2-2 1.4-3.5 3.2-4.3L18.6 6z"/></svg>
-              <blockquote class="mt-5 flex-1 text-xl leading-relaxed text-zinc-200">“ASAP came out right away; even on Memorial Day and just charged the standard service call price plus parts. The gentleman was very professional and got the job done in about 30 minutes. I believe their prices for the parts were comparable or better than others. Thank you!”</blockquote>
-              <figcaption class="mt-8 flex items-center gap-3 border-t border-white/5 pt-6">
-                <span class="grid size-11 place-items-center bg-brand-600 font-bold text-white">MB</span>
-                <span><b class="block text-white">Margaret Black</b><span class="text-sm text-zinc-500">Google review</span></span>
-              </figcaption>
-            </figure>
-            <figure data-reveal style="--d:1" class="flex flex-col bg-ink-900 p-8">
-              <blockquote class="flex-1 leading-relaxed text-zinc-300">“Called Garage Door ASAP and they responded almost immediately. Service man, Rami was very informative and polite. He did not push to sell. Job well done! Would I recommend? ABSOLUTELY!!”</blockquote>
-              <figcaption class="mt-6 flex items-center gap-3">
-                <span class="grid size-10 place-items-center bg-ink-700 text-sm font-bold text-white">JD</span>
-                <span><b class="block text-sm text-white">Joann Deronda</b><span class="text-xs text-zinc-500">Google review</span></span>
-              </figcaption>
-            </figure>
-            <figure data-reveal style="--d:2" class="flex flex-col bg-ink-900 p-8">
-              <blockquote class="flex-1 leading-relaxed text-zinc-300">“We called Garage Door ASAP Service. They came in two hours, fixed the garage door and had the friendliest workers ever! Million thanks!! Would recommend to anyone!”</blockquote>
-              <figcaption class="mt-6 flex items-center gap-3">
-                <span class="grid size-10 place-items-center bg-ink-700 text-sm font-bold text-white">CE</span>
-                <span><b class="block text-sm text-white">Carole Engels</b><span class="text-xs text-zinc-500">Google review</span></span>
-              </figcaption>
-            </figure>
+        <div class="stage stage-fit burst" data-tilt>
+          <div class="stage-bg"><div class="map-grid"></div></div>
+          <div class="absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2 text-center">
+            <span class="radar relative mx-auto grid size-12 place-items-center rounded-full bg-brand-600 text-white">
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <p class="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-zinc-400">Clermont HQ</p>
           </div>
+          <div class="city-card fcard left-3 top-3 md:-left-5 md:top-10" style="--k:0;--fx:150px;--fy:120px"><p class="fcard-title text-sm">Orlando</p><p class="fcard-text">Covered</p></div>
+          <div class="city-card fcard right-3 top-3 md:-right-5 md:top-[22%]" style="--k:1;--fx:-150px;--fy:70px"><p class="fcard-title text-sm">The Villages</p><p class="fcard-text">Covered</p></div>
+          <div class="city-card fcard bottom-3 left-3 md:-left-5 md:bottom-[20%]" style="--k:2;--fx:140px;--fy:-70px"><p class="fcard-title text-sm">Kissimmee</p><p class="fcard-text">Covered</p></div>
+          <div class="city-card fcard bottom-3 right-3 md:-right-5 md:bottom-8" style="--k:3;--fx:-150px;--fy:-120px"><p class="fcard-title text-sm">Daytona Beach</p><p class="fcard-text">Covered</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 06 Service areas ============ -->
-    <section id="areas" class="border-t border-white/5 bg-ink-900 section">
-      <div class="mx-auto max-w-7xl px-5 md:px-6">
-        <div class="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-          <div>
-            <p data-reveal class="sec-num">06 <span>Service areas</span></p>
-            <h2 data-reveal style="--d:1" class="h2 mt-4">70+ cities. 6 counties.</h2>
-            <p data-reveal style="--d:2" class="mt-5 text-zinc-400">Orange, Seminole, Osceola, Lake, Volusia and Pinellas counties — from The Villages to Daytona Beach.</p>
-
-            <div data-reveal style="--d:3" class="mt-8 flex items-center gap-5 border border-white/10 bg-ink-950 p-6">
-              <span class="radar relative grid size-12 shrink-0 place-items-center rounded-full bg-brand-600 text-white">
-                <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </span>
-              <div>
-                <p class="font-bold text-white">Headquartered in Clermont</p>
-                <p class="text-sm text-zinc-400">17649 US-27 Unit 16, Clermont, FL 34711</p>
-              </div>
-            </div>
-          </div>
-
-          <div data-reveal style="--d:2">
-            <label for="citySearch" class="sr-only">Search your city</label>
-            <div class="relative">
-              <svg class="pointer-events-none absolute left-5 top-1/2 size-5 -translate-y-1/2 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-              <input id="citySearch" type="search" placeholder="Search your city…" autocomplete="off" class="w-full border border-white/10 bg-ink-950 py-4 pl-14 pr-5 text-white placeholder:text-zinc-500 transition focus:border-brand-500/60 focus:outline-none focus:ring-4 focus:ring-brand-500/15" />
-            </div>
-            <ul id="cityList" class="city-scroll mt-5 flex max-h-[340px] flex-wrap content-start gap-2 overflow-y-auto pb-6 pr-1" aria-live="polite"></ul>
-            <p id="cityEmpty" class="mt-5 hidden border border-dashed border-white/10 p-5 text-zinc-400">Not on the list? <a href="tel:8777877121" class="font-semibold text-brand-400 underline-offset-4 hover:underline">Give us a call</a> — we very likely cover your area too.</p>
-          </div>
+    <!-- ============ 05 FAQ (light): sticky title + numbered cards ============ -->
+    <section id="faq" class="theme-light section fit">
+      <div class="mx-auto grid max-w-7xl gap-10 px-5 md:px-6 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
+        <div class="lg:sticky lg:top-28 lg:self-start">
+          <p data-reveal class="tag"><b>05</b>FAQ</p>
+          <h2 data-reveal style="--d:1" class="h2 mt-5">Good to know.</h2>
+          <p data-reveal style="--d:2" class="lead mt-5">Quick answers to the questions we hear most.</p>
+        </div>
+        <div class="grid gap-3">
+          <details data-reveal="right" class="faq-item" name="faq">
+            <summary class="flex items-center gap-5 p-5 text-left sm:p-6"><span class="text-sm font-black text-brand-600 font-wide">01</span><h3 class="flex-1 text-lg font-bold text-ink-950">Why replace both springs if only one broke?</h3><span class="faq-icon grid size-9 shrink-0 place-items-center bg-zinc-100 text-xl leading-none text-ink-950" aria-hidden="true">+</span></summary>
+            <p class="px-5 pb-6 pl-14 text-zinc-600 sm:px-6 sm:pl-[3.75rem]">The other spring has been carrying double the load and usually fails soon after. Replacing both saves you a second visit.</p>
+          </details>
+          <details data-reveal="right" style="--d:1" class="faq-item" name="faq">
+            <summary class="flex items-center gap-5 p-5 text-left sm:p-6"><span class="text-sm font-black text-brand-600 font-wide">02</span><h3 class="flex-1 text-lg font-bold text-ink-950">Can I replace a spring myself?</h3><span class="faq-icon grid size-9 shrink-0 place-items-center bg-zinc-100 text-xl leading-none text-ink-950" aria-hidden="true">+</span></summary>
+            <p class="px-5 pb-6 pl-14 text-zinc-600 sm:px-6 sm:pl-[3.75rem]">Please don't. Springs are under extreme tension and can seriously injure you without the right tools and procedures.</p>
+          </details>
+          <details data-reveal="right" style="--d:2" class="faq-item" name="faq">
+            <summary class="flex items-center gap-5 p-5 text-left sm:p-6"><span class="text-sm font-black text-brand-600 font-wide">03</span><h3 class="flex-1 text-lg font-bold text-ink-950">Should rollers be replaced with the springs?</h3><span class="faq-icon grid size-9 shrink-0 place-items-center bg-zinc-100 text-xl leading-none text-ink-950" aria-hidden="true">+</span></summary>
+            <p class="px-5 pb-6 pl-14 text-zinc-600 sm:px-6 sm:pl-[3.75rem]">It's recommended. Most rollers last about 10,000 cycles, roughly the same as a standard spring.</p>
+          </details>
+          <details data-reveal="right" style="--d:3" class="faq-item" name="faq">
+            <summary class="flex items-center gap-5 p-5 text-left sm:p-6"><span class="text-sm font-black text-brand-600 font-wide">04</span><h3 class="flex-1 text-lg font-bold text-ink-950">My door is off track. Can I still use it?</h3><span class="faq-icon grid size-9 shrink-0 place-items-center bg-zinc-100 text-xl leading-none text-ink-950" aria-hidden="true">+</span></summary>
+            <p class="px-5 pb-6 pl-14 text-zinc-600 sm:px-6 sm:pl-[3.75rem]">No. An off-track door is unstable. Don't move it by hand or with the opener until it's repaired.</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- ============ Contact / Quote ============ -->
-    <section id="contact" class="relative isolate overflow-hidden section">
+    <!-- ============ 06 FREE QUOTE (dark): centered form over a photo ============ -->
+    <section id="contact" class="theme-dark section fit relative isolate overflow-hidden">
       <picture><source type="image/avif" sizes="100vw" srcset="../assets/img/home-modern-dusk-640.avif 640w, ../assets/img/home-modern-dusk-1200.avif 1200w, ../assets/img/home-modern-dusk-1800.avif 1800w" /><img src="../assets/img/home-modern-dusk-1200.webp" srcset="../assets/img/home-modern-dusk-640.webp 640w, ../assets/img/home-modern-dusk-1200.webp 1200w, ../assets/img/home-modern-dusk-1800.webp 1800w" sizes="100vw" width="1200" height="800" alt="" loading="lazy" decoding="async" class="absolute inset-0 -z-20 size-full object-cover" /></picture>
       <div class="absolute inset-0 -z-10 bg-ink-950/85" aria-hidden="true"></div>
-      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 md:px-6 lg:grid-cols-2 lg:gap-20">
-        <div>
-          <p data-reveal class="sec-num">07 <span>Get a free quote</span></p>
-          <h2 data-reveal style="--d:1" class="h2 mt-4">Need help?<br /><span class="text-brand-500">Call us now.</span></h2>
-          <p data-reveal style="--d:2" class="mt-6 max-w-md text-lg text-zinc-300">Real people, any hour. Tell us what's wrong and we'll get a technician to you the same day.</p>
-          <a data-reveal style="--d:3" href="tel:8777877121" class="group mt-10 inline-flex items-center gap-5">
-            <span class="relative grid size-16 place-items-center bg-brand-600 text-white shadow-xl shadow-brand-600/30 transition duration-500 group-hover:scale-105">
-              <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </span>
-            <span>
-              <span class="block text-sm uppercase tracking-[0.2em] text-zinc-500">24/7 hotline</span>
-              <span class="block text-3xl font-black text-white font-wide transition group-hover:text-brand-400 sm:text-4xl">(877) 787-7121</span>
-            </span>
-          </a>
-          <div data-reveal style="--d:4" class="mt-8 flex items-center gap-4 border border-white/10 bg-ink-950/60 p-4 backdrop-blur">
-            <img src="../assets/img/badge-finance.webp" width="200" height="133" alt="We finance: no payment, no interest for 25 months" loading="lazy" decoding="async" class="h-14 w-auto" />
-            <p class="text-sm text-zinc-300"><b class="text-white">Financing available.</b> Free measure &amp; quote: <a href="tel:8779197828" class="font-semibold text-white underline-offset-4 hover:underline">(877) 919-7828</a></p>
-          </div>
-        </div>
 
-        <form id="quoteForm" data-reveal="scale" class="relative border border-white/10 bg-ink-900/95 p-6 shadow-2xl backdrop-blur sm:p-8" novalidate>
-          <div class="quote-fields grid gap-4 sm:grid-cols-2">
+      <div class="mx-auto max-w-2xl px-5 text-center md:px-6">
+        <p data-reveal class="tag"><b>06</b>Free quote</p>
+        <h2 data-reveal style="--d:1" class="h2 mt-5">Tell us what's wrong.</h2>
+        <p data-reveal style="--d:2" class="lead mx-auto mt-3">Free measure and quote, with no obligation. We'll call you back.</p>
+
+        <form id="quoteForm" data-reveal="door" style="--d:3" class="mt-6 border border-white/10 bg-ink-900/95 p-5 text-left shadow-2xl backdrop-blur sm:p-6" novalidate>
+          <div class="quote-fields grid gap-3 sm:grid-cols-2">
             <div>
-              <label for="qName" class="mb-2 block text-sm font-medium text-zinc-300">Full name</label>
+              <label for="qName" class="mb-1.5 block text-sm font-medium text-zinc-300">Full name</label>
               <input id="qName" name="name" required autocomplete="name" class="field" placeholder="Jane Smith" />
             </div>
             <div>
-              <label for="qPhone" class="mb-2 block text-sm font-medium text-zinc-300">Phone</label>
-              <input id="qPhone" name="phone" type="tel" required autocomplete="tel" class="field" placeholder="(407) 555-0123" />
+              <label for="qPhone" class="mb-1.5 block text-sm font-medium text-zinc-300">Phone</label>
+              <input id="qPhone" name="phone" type="tel" inputmode="tel" maxlength="20" required autocomplete="tel" class="field min-w-[calc(16ch+2rem)] tabular-nums" placeholder="(407) 555-0123" />
             </div>
             <div class="sm:col-span-2">
-              <label for="qService" class="mb-2 block text-sm font-medium text-zinc-300">What do you need?</label>
+              <label for="qService" class="mb-1.5 block text-sm font-medium text-zinc-300">What do you need?</label>
               <select id="qService" name="service" class="field select">
                 <option>Spring replacement</option>
                 <option>Opener repair</option>
                 <option>Opener replacement</option>
                 <option>Roller replacement</option>
                 <option>Shifted door repair</option>
-                <option>Cable replacement</option>
                 <option>General maintenance</option>
-                <option>Not sure — need diagnosis</option>
+                <option>Not sure yet</option>
               </select>
             </div>
-            <div class="sm:col-span-2">
-              <label for="qMsg" class="mb-2 block text-sm font-medium text-zinc-300">Describe the problem <span class="text-zinc-600">(optional)</span></label>
-              <textarea id="qMsg" name="message" rows="3" class="field resize-none" placeholder="e.g. Door makes a loud bang and won't open"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-shine group mt-2 disabled:opacity-70 sm:col-span-2">
+            <button type="submit" class="btn btn-primary btn-shine disabled:opacity-70 sm:col-span-2">
               <span class="btn-label">Request my free quote</span>
-              <svg class="size-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
-            <p class="text-center text-xs text-zinc-500 sm:col-span-2">No obligation. We'll call you back fast.</p>
           </div>
           <div class="quote-success hidden py-10 text-center" role="status">
             <span class="mx-auto grid size-16 place-items-center rounded-full bg-emerald-500/15 text-emerald-400 ring-1 ring-emerald-400/30">
@@ -511,52 +401,34 @@
             <p class="mt-2 text-zinc-400">Thanks! A team member will call you shortly.</p>
           </div>
         </form>
+
+        <div data-reveal style="--d:4" class="mt-4 inline-flex items-center gap-4 border border-white/10 bg-ink-950/80 p-2.5 pr-5 text-left">
+          <img src="../assets/img/badge-finance.webp" width="200" height="133" alt="" loading="lazy" decoding="async" class="h-10 w-auto" />
+          <p class="text-sm text-zinc-300"><b class="block text-white">Financing available</b>No payment, no interest for 25 months</p>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- ============ Footer ============ -->
   <footer class="border-t border-white/5 bg-ink-950">
-    <div class="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-6 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-      <div>
-        <img src="../assets/img/logo-wordmark.webp" width="235" height="42" alt="Garage Door ASAP Service" loading="lazy" decoding="async" class="h-10 w-auto" />
-        <p class="mt-5 max-w-xs text-sm leading-relaxed text-zinc-500">Quality, fast and reliable garage door service &amp; repair across Central Florida. Licensed, bonded and insured.</p>
-      </div>
-      <div>
-        <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-white">Services</h3>
-        <ul class="mt-5 space-y-3 text-sm text-zinc-500">
-          <li><a href="#services" class="transition hover:text-white">Spring Replacement</a></li>
-          <li><a href="#services" class="transition hover:text-white">Opener Repair</a></li>
-          <li><a href="#services" class="transition hover:text-white">Opener Replacement</a></li>
-          <li><a href="#services" class="transition hover:text-white">Roller Replacement</a></li>
-          <li><a href="#services" class="transition hover:text-white">Shifted Door Repair</a></li>
-          <li><a href="#services" class="transition hover:text-white">General Maintenance</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-white">Company</h3>
-        <ul class="mt-5 space-y-3 text-sm text-zinc-500">
-          <li><a href="#crew" class="transition hover:text-white">About</a></li>
-          <li><a href="#reviews" class="transition hover:text-white">Reviews</a></li>
-          <li><a href="#areas" class="transition hover:text-white">Locations</a></li>
-          <li><a href="#contact" class="transition hover:text-white">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-white">Contact</h3>
-        <ul class="mt-5 space-y-3 text-sm text-zinc-500">
-          <li><a href="tel:8777877121" class="font-semibold text-zinc-200 transition hover:text-brand-400">(877) 787-7121</a></li>
-          <li><a href="mailto:info@garagedoorasapservice.com" class="break-all transition hover:text-white">info@garagedoorasapservice.com</a></li>
-          <li>17649 US-27 Unit 16<br />Clermont, FL 34711</li>
-        </ul>
-      </div>
+    <div class="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-12 md:flex-row md:items-center md:justify-between md:px-6">
+      <img src="../assets/img/logo-wordmark.webp" width="235" height="42" alt="Garage Door ASAP Service" loading="lazy" decoding="async" class="h-9 w-auto self-start md:self-auto" />
+      <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-500" aria-label="Footer">
+        <a href="#services" class="transition hover:text-white">Services</a>
+        <a href="#about" class="transition hover:text-white">About</a>
+        <a href="#reviews" class="transition hover:text-white">Reviews</a>
+        <a href="#areas" class="transition hover:text-white">Areas</a>
+        <a href="#faq" class="transition hover:text-white">FAQ</a>
+      </nav>
+      <address class="text-sm not-italic text-zinc-500">17649 US-27 Unit 16, Clermont, FL 34711<br /><a href="mailto:info@garagedoorasapservice.com" class="transition hover:text-white">info@garagedoorasapservice.com</a></address>
     </div>
     <div class="border-t border-white/5">
       <p class="mx-auto max-w-7xl px-5 py-6 text-xs text-zinc-600 md:px-6">&copy; <span data-year>2026</span> Garage Doors ASAP Service Inc. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- ============ Mobile sticky CTA ============ -->
+  <!-- ============ Mobile sticky actions ============ -->
   <div class="safe-bottom fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t border-white/10 bg-ink-950/90 p-3 backdrop-blur-lg md:hidden">
     <a href="#contact" class="btn btn-sm btn-ghost">Free quote</a>
     <a href="tel:8777877121" class="btn btn-sm btn-primary">
