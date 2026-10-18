@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Garage Door ASAP — Homepage Designs</title>
+  <meta name="description" content="Two homepage redesign concepts for Garage Door ASAP Service." />
+  <link rel="icon" type="image/webp" href="assets/img/mascot-head-96.webp" />
+  <style>
+    :root {
+      --bg: #f4f3ef; --card: #fff; --ink: #0e1726; --muted: #5b6472; --line: rgb(14 23 38 / .08); --brand: #db0000;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --bg: #0b0c0f; --card: #15171c; --ink: #f2f3f5; --muted: #9aa1ad; --line: rgb(255 255 255 / .08); }
+    }
+    :root[data-theme="dark"] { --bg: #0b0c0f; --card: #15171c; --ink: #f2f3f5; --muted: #9aa1ad; --line: rgb(255 255 255 / .08); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+    main { max-width: 1120px; margin: 0 auto; padding: 56px 16px 64px; }
+    header { display: flex; align-items: center; gap: 14px; }
+    header img { width: 52px; height: 52px; border-radius: 50%; background: #fff2f2; }
+    h1 { margin: 0; font-size: clamp(1.6rem, 4vw, 2.3rem); letter-spacing: -.02em; line-height: 1.1; }
+    .lead { margin: 18px 0 0; max-width: 640px; color: var(--muted); }
+    .grid { display: grid; gap: 20px; margin-top: 40px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    a.card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: var(--card); color: inherit; text-decoration: none; transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s; }
+    a.card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -24px rgb(14 23 38 / .35); }
+    a.card:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+    .shot { aspect-ratio: 16 / 10; overflow: hidden; background: #ddd; }
+    .shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 1s cubic-bezier(.16,1,.3,1); }
+    a.card:hover .shot img { transform: scale(1.03); }
+    .body { padding: 22px 24px 24px; }
+    .tag { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .t1 { background: #18181b; color: #ff6b6b; }
+    .t2 { background: #fff2f2; color: var(--brand); }
+    h2 { margin: 12px 0 6px; font-size: 1.35rem; }
+    .body p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .open { margin-top: 16px; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--brand); }
+    footer { margin-top: 40px; color: var(--muted); font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="assets/img/mascot-head-96.webp" width="52" height="52" alt="" />
+      <h1>Garage Door ASAP — homepage designs</h1>
+    </header>
+    <p class="lead">Two homepage concepts with different styles, built on real content and photos from garagedoorasapservice.com. Pick one to open it.</p>
+
+    <div class="grid">
+      <a class="card" href="demo-1-night-shift/index.html">
+        <div class="shot"><img src="assets/img/preview-night-shift.webp" width="800" height="500" alt="Preview of the Night Shift design: dark hero photo of a home at dusk" /></div>
+        <div class="body">
+          <span class="tag t1">Design 1 · Dark</span>
+          <h2>Night Shift</h2>
+          <p>Cinematic and industrial. A garage door rolls up to reveal the hero photo, followed by photo service cards, spring-life data, a real before/after job and the crew photo.</p>
+          <span class="open">Open design →</span>
+        </div>
+      </a>
+      <a class="card" href="demo-2-daylight/index.html">
+        <div class="shot"><img src="assets/img/preview-daylight.webp" width="800" height="500" alt="Preview of the Daylight design: bright layout with a photo of a two-car garage home" /></div>
+        <div class="body">
+          <span class="tag t2">Design 2 · Light</span>
+          <h2>Daylight</h2>
+          <p>Friendly and editorial. A photo-collage hero with quick quote, services bento, a symptom diagnosis tool, the 29-point tune-up checklist, and Mr. ASAP.</p>
+          <span class="open">Open design →</span>
+        </div>
+      </a>
+    </div>
+
+    <footer>Images: company photos from garagedoorasapservice.com, plus license-free photos from Unsplash and rawpixel (CC0).</footer>
+  </main>
+</body>
+</html>
