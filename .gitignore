@@ -2,3 +2,6 @@ node_modules/
 .DS_Store
 Thumbs.db
 *.log
+assets/img/incoming/
+demo-1-night-shift-backup-2026-10-19/
+photos/

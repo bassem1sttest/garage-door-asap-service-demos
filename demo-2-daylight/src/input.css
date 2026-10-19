@@ -27,11 +27,13 @@
   --color-brand-600: #db0000;
   --color-brand-700: #b30000;
 
+  /* One radius scale: controls 16 · cards 28 · panels 36 */
+  --radius-card: 1.75rem;
+  --radius-panel: 2.25rem;
+
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-
-:root { --nav: 84px; }
 
 /* Smooth cross-page navigation (launcher <-> designs) */
 @view-transition { navigation: auto; }
@@ -42,25 +44,20 @@
   p, li, blockquote { text-wrap: pretty; }
   ::selection { background: var(--color-brand-600); color: #fff; }
   :focus-visible { outline: 2px solid var(--color-brand-600); outline-offset: 3px; border-radius: 8px; }
-  @media (max-width: 1023.98px) { [id] { scroll-margin-top: var(--nav); } }
+  [id] { scroll-margin-top: 100px; }
   img { max-width: 100%; height: auto; }
-  /* Entrance animations start off-screen; never let them widen the page */
-  main { overflow-x: clip; }
 }
 
 /* ======================================================================
-   Design system: one tag, one heading, one lead, one button set, one rhythm
+   Design system: one type scale, one button set, one section rhythm
    ====================================================================== */
 @layer components {
-  .pill-tag {
-    display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .8rem; border-radius: 999px;
-    background: var(--color-brand-50); color: var(--color-brand-700);
-    font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  }
-  .pill-tag-dark { background: rgb(255 255 255 / .1); color: #fff; }
-  .h2 { font-size: clamp(1.9rem, 1.4rem + 1.9vw, 2.9rem); font-weight: 800; line-height: 1.08; letter-spacing: -.03em; }
-  .lead { font-size: 1.0625rem; line-height: 1.65; color: rgb(14 23 38 / .6); max-width: 32rem; }
-  .section { padding-block: clamp(2.75rem, 1.5rem + 4vh, 4.5rem); }
+  .h2 { font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.25rem); font-weight: 800; line-height: 1.06; letter-spacing: -.03em; }
+  .eyebrow { font-size: .875rem; font-weight: 700; color: var(--color-brand-600); }
+  .eyebrow-light { font-size: .875rem; font-weight: 700; color: var(--color-brand-400); }
+  /* Space between sections: 48px on phones, 64px on desktop (inside sections everything stays <= 32px) */
+  .section { padding-block: 3rem; }
+  @media (min-width: 1024px) { .section { padding-block: 4rem; } }
 
   .btn {
     position: relative; display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
@@ -69,16 +66,17 @@
   }
   .btn:active { transform: scale(.97); }
   .btn svg { width: 1rem; height: 1rem; flex: none; transition: transform .4s var(--ease-spring); }
-  .btn-lg { min-height: 3.5rem; padding: 1rem 1.9rem; font-size: 1.0625rem; }
+  .btn-lg { min-height: 3.75rem; padding: 1rem 2rem; font-size: 1.125rem; }
   .btn-primary { background: var(--color-brand-600); color: #fff; box-shadow: 0 16px 32px -14px rgb(219 0 0 / .65); }
-  .btn-dark { background: var(--color-navy-900); color: #fff; }
+  .btn-dark { background: var(--color-ink); color: #fff; }
+  .btn-outline { border: 1px solid rgb(14 23 38 / .12); background: #fff; color: var(--color-ink); }
   .btn-outline-light { border: 1px solid rgb(255 255 255 / .22); color: #fff; }
   @media (hover: hover) {
     .btn-primary:hover { background: var(--color-brand-700); }
     .btn-dark:hover { background: var(--color-navy-800); }
+    .btn-outline:hover { border-color: rgb(14 23 38 / .3); }
     .btn-outline-light:hover { background: rgb(255 255 255 / .1); }
     .btn:hover .arrow { transform: translateX(3px); }
-    .btn:hover .arrow-up { transform: translate(2px, -2px); }
     .btn:hover .ring-icon { transform: rotate(15deg); }
   }
 }
@@ -90,6 +88,7 @@
   transition: opacity .7s var(--ease-out-expo), transform .7s var(--ease-out-expo);
   transition-delay: calc(var(--d, 0) * 65ms);
 }
+.js [data-reveal="scale"] { transform: scale(.97); }
 .js [data-reveal].is-in { opacity: 1; transform: none; }
 
 .intro { opacity: 0; animation: intro .7s var(--ease-out-expo) forwards; animation-delay: calc(var(--i, 0) * 60ms + 40ms); }
@@ -117,9 +116,9 @@
 .rotator > span.is-leaving { transform: translate3d(0, -105%, 0); opacity: 0; }
 
 /* ---------- Hero photo: opens like a garage door, then zooms out with scroll ---------- */
-.hero-frame { clip-path: inset(0 round 2.25rem); }
+.hero-frame { clip-path: inset(0 round var(--radius-panel)); }
 .js .hero-frame { animation: frameIn .8s var(--ease-out-expo) both; }
-@keyframes frameIn { from { clip-path: inset(100% 0 0 0 round 2.25rem); } to { clip-path: inset(0 round 2.25rem); } }
+@keyframes frameIn { from { clip-path: inset(100% 0 0 0 round var(--radius-panel)); } to { clip-path: inset(0 round var(--radius-panel)); } }
 @supports (animation-timeline: scroll()) {
   .hero-photo { transform-origin: 50% 70%; animation: heroZoom linear both; animation-timeline: scroll(root block); animation-range: 0 85vh; }
   @keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1) translate3d(0, 4%, 0); } }
@@ -137,103 +136,55 @@
 }
 @keyframes pulse { 80%, 100% { transform: scale(1.9); opacity: 0; } }
 
-/* ======================================================================
-   Stage: the visual half of every feature section.
-   A soft tinted panel with thin white arcs; white cards fan in on a spring.
-   ====================================================================== */
-.stage { position: relative; height: min(46svh, 370px); }
-@media (min-width: 640px) { .stage { height: min(52svh, 440px); } }
-/* Capped so the visual stays in proportion with the text beside it */
-@media (min-width: 1024px) { .stage { height: clamp(340px, calc(100svh - 11rem), 500px); } }
-
-/* One screen per section on desktop, with a gentle snap under the header */
-@media (min-width: 1024px) and (min-height: 640px) {
-  html { scroll-snap-type: y proximity; }
-  .fit { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; scroll-snap-align: start; padding-top: calc(var(--nav) + 1rem); }
-}
-
-/* Symptom chips: one swipe row on phones */
-.chip-row { display: flex; gap: .5rem; margin-inline: -1.25rem; padding: .25rem 1.25rem; overflow-x: auto; scrollbar-width: none; }
-.chip-row::-webkit-scrollbar { display: none; }
-.chip-row > * { flex: none; white-space: nowrap; }
-@media (min-width: 640px) { .chip-row { flex-wrap: wrap; margin: 0; padding: 0; overflow: visible; } }
-.stage-bg { position: absolute; inset: 0; overflow: hidden; border-radius: 2rem; background: var(--tint, #fde8e8); }
-.stage-bg::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-radial-gradient(circle at 12% 108%, transparent 0 86px, rgb(255 255 255 / .8) 86px 88px);
-  mask-image: radial-gradient(circle at 12% 108%, #000 30%, transparent 78%);
-}
-.tint-rose { --tint: #fdeaea; }
-.tint-mint { --tint: #e3f1ea; }
-.tint-sky { --tint: #e6eef8; }
-.tint-sand { --tint: #f3eee4; }
-
-/* Layered so utilities (p-7, rounded-full, ...) can override per card */
-@layer components {
-  .photo-card { position: absolute; overflow: hidden; border-radius: 1.5rem; background: #fff; box-shadow: 0 30px 60px -30px rgb(14 23 38 / .45); }
-  .photo-card img { width: 100%; height: 100%; object-fit: cover; }
-  .photo-card--product img { object-fit: contain; padding: 1.25rem; }
-  .fcard {
-    position: absolute; z-index: 2; border-radius: 1.1rem; background: #fff;
-    padding: .9rem 1.1rem; box-shadow: 0 18px 40px -18px rgb(14 23 38 / .3), 0 0 0 1px rgb(14 23 38 / .04);
-  }
-  .fcard--accent { box-shadow: 0 6px 0 var(--color-navy-900), 0 18px 40px -18px rgb(14 23 38 / .3); }
-}
-.fcard-label { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgb(14 23 38 / .45); }
-.fcard-icon { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; flex: none; border-radius: .8rem; background: var(--color-brand-50); color: var(--color-brand-600); }
-.fcard-icon svg { width: 1.2rem; height: 1.2rem; }
-
-/* Cards fan in on a spring when the stage enters the viewport */
-.js .stage .fcard, .js .stage .photo-card {
-  opacity: 0; transform: translate3d(0, 34px, 0) scale(.92) rotate(var(--fr, -3deg));
-  transition: opacity .45s ease, transform .85s var(--ease-spring);
-  transition-delay: calc(var(--k, 0) * 120ms + 100ms);
-}
-.js .stage.is-in .fcard, .js .stage.is-in .photo-card { opacity: 1; transform: none; }
-.js .stage.is-settled .fcard { transition-delay: 0ms; transition-duration: .3s, .5s; }
+/* ---------- Bento ---------- */
+.zoom { transition: transform 1s var(--ease-out-expo); }
+.lift { transition: transform .5s var(--ease-out-expo), box-shadow .5s var(--ease-out-expo), border-color .3s; }
 @media (hover: hover) {
-  .js .stage.is-settled .fcard:hover { transform: translate3d(0, -5px, 0); }
+  .group:hover .zoom { transform: scale(1.06); }
+  .lift:hover { transform: translate3d(0, -4px, 0); box-shadow: 0 24px 50px -24px rgb(14 23 38 / .25); }
 }
 
-/* ======================================================================
-   Section animations: every section enters its own way
-   ====================================================================== */
-/* Services: chips pop in one after another on a spring */
-.js .chip-row .diag-chip { opacity: 0; transform: scale(.6) translate3d(0, 10px, 0); transition: transform .6s var(--ease-spring), opacity .3s ease, background-color .25s, color .25s, border-color .25s; transition-delay: calc(var(--c, 0) * 70ms + 250ms); }
-.js .chip-row.is-in .diag-chip { opacity: 1; transform: none; }
-.js .chip-row.is-settled .diag-chip { transition-delay: 0ms; }
 
-/* About: the crew photo spins in, cards slide in from their own side */
-.js .flip .photo-card { transform: perspective(1000px) rotateY(-38deg) scale(.88); transition-duration: .5s, 1.1s; }
-.js .flip .fcard { translate: var(--fx, 0) 0; transition-property: opacity, transform, translate; transition-duration: .45s, .85s, .9s; transition-timing-function: ease, var(--ease-spring), var(--ease-out-expo); }
-.js .flip.is-in .fcard { translate: 0 0; }
+.select-chev { background: var(--color-paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230e1726' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right .75rem center / 16px; padding-right: 2rem; }
 
-/* Reviews: the quote comes into focus */
-.js .focus-in .fcard { filter: blur(14px); transform: scale(.94); transition: opacity .6s ease, transform 1s var(--ease-out-expo), filter .9s ease; }
-.js .focus-in.is-in .fcard { filter: none; transform: none; }
+.mascot { animation: mascot 6s ease-in-out infinite; transform-origin: 50% 100%; }
+@keyframes mascot { 50% { transform: translate3d(0, 14px, 0) rotate(-1.5deg); } }
 
-/* Areas: city pills fly out of the HQ pin (translate, so the bob keeps running) */
-.js .burst .city-pill { translate: var(--fx, 0) var(--fy, 0); scale: .3; transition: opacity .4s ease, translate .9s var(--ease-spring), scale .9s var(--ease-spring), background-color .3s, color .3s; transition-delay: calc(var(--k, 0) * 120ms + 250ms); }
-.js .burst.is-in .city-pill { translate: 0 0; scale: 1; }
-.js .burst.is-settled .city-pill { transition-delay: 0ms; }
+/* ---------- Process line ---------- */
+.js .process-line { transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease-out-expo) .2s; }
+.js .is-in .process-line { transform: scaleX(1); }
 
-/* FAQ: questions unfold from the top */
-.js [data-reveal="unfold"] { transform: perspective(900px) rotateX(-75deg); transform-origin: 50% 0; transition-duration: .5s, .9s; }
+/* ---------- Overview panel: thin white arcs behind the mascot ---------- */
+.arcs::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: repeating-radial-gradient(circle at 12% 110%, transparent 0 86px, rgb(255 255 255 / .85) 86px 88px);
+  mask-image: radial-gradient(circle at 12% 110%, #000 30%, transparent 80%);
+}
 
-/* Final CTA: the panel opens as a growing circle */
-.js [data-reveal="circle"] { transform: none; opacity: 1; clip-path: circle(6% at 18% 70%); transition: clip-path 1.2s var(--ease-out-expo); }
-.js [data-reveal="circle"].is-in { clip-path: circle(150% at 18% 70%); }
+/* ---------- Services: hover (or, on touch screens, a gentle loop) shows the result ---------- */
+.ba-after { opacity: 0; transform: scale(1.06); transition: opacity .5s ease, transform .9s var(--ease-out-expo); }
+.ba-before { transition: transform 1s var(--ease-out-expo); }
+.ba-text > * { grid-area: 1 / 1; transition: opacity .35s ease, transform .45s var(--ease-out-expo); }
+.ba-text-after { opacity: 0; transform: translate3d(0, 6px, 0); }
+.ba-tag { background: rgb(255 255 255 / .92); color: var(--color-ink); box-shadow: 0 6px 16px -8px rgb(14 23 38 / .35); transition: background-color .3s, color .3s; }
+.ba-tag-after { display: none; }
+@media (hover: none) { .ba-tag-before { display: none; } .ba-tag { opacity: 0; } }
+.ba-card.show-after .ba-after, .ba-card:focus-visible .ba-after { opacity: 1; transform: none; }
+.ba-card.show-after .ba-text-before, .ba-card:focus-visible .ba-text-before { opacity: 0; transform: translate3d(0, -6px, 0); }
+.ba-card.show-after .ba-text-after, .ba-card:focus-visible .ba-text-after { opacity: 1; transform: none; }
+.ba-card.show-after .ba-tag, .ba-card:focus-visible .ba-tag { opacity: 1; background: var(--color-brand-600); color: #fff; }
+.ba-card.show-after .ba-tag-before, .ba-card:focus-visible .ba-tag-before { display: none; }
+.ba-card.show-after .ba-tag-after, .ba-card:focus-visible .ba-tag-after { display: inline; }
+@media (hover: hover) {
+  .ba-card:hover .ba-after { opacity: 1; transform: none; }
+  .ba-card:hover .ba-text-before { opacity: 0; transform: translate3d(0, -6px, 0); }
+  .ba-card:hover .ba-text-after { opacity: 1; transform: none; }
+  .ba-card:hover .ba-tag { background: var(--color-brand-600); color: #fff; }
+  .ba-card:hover .ba-tag-before { display: none; }
+  .ba-card:hover .ba-tag-after { display: inline; }
+}
 
-/* ---------- Symptom picker (panel swaps with a View Transition) ---------- */
-.diag-chip { transition: background-color .25s, color .25s, border-color .25s; }
-.diag-chip[aria-selected="true"] { background: var(--color-ink); color: #fff; border-color: var(--color-ink); }
-.diag-panel { view-transition-name: diag-panel; }
-::view-transition-old(diag-panel) { animation: vtOut .18s ease both; }
-::view-transition-new(diag-panel) { animation: vtIn .45s var(--ease-out-expo) both; }
-@keyframes vtOut { to { opacity: 0; } }
-@keyframes vtIn { from { opacity: 0; transform: translateY(10px) scale(.98); } }
-
-/* ---------- Reviews: progress-bar autoplay ---------- */
+/* ---------- Reviews ---------- */
 .review-slide { transition: opacity .5s ease, transform .6s var(--ease-out-expo); }
 .review-slide:not(.is-active) { opacity: 0; transform: translate3d(0, 12px, 0); pointer-events: none; position: absolute; inset: 0; }
 .review-tab .bar { transform: scaleX(0); transform-origin: left; }
@@ -241,11 +192,6 @@
 .review-tab.is-active { background: #fff; box-shadow: 0 10px 30px -14px rgb(14 23 38 / .25); }
 .reviews.is-paused .review-tab.is-active .bar { animation-play-state: paused; }
 @keyframes fill { to { transform: scaleX(1); } }
-
-/* ---------- Service-area city pills ---------- */
-.city-pill { transition: background-color .3s, color .3s, box-shadow .3s; }
-.city-pill.is-hit { background: var(--color-brand-600); color: #fff; }
-.city-pill.is-hit .dot { background: #fff; }
 
 /* ---------- FAQ: native <details name> accordion (no JS), animated where supported ---------- */
 .faq-item summary { list-style: none; cursor: pointer; }
@@ -264,13 +210,6 @@
 }
 @media (hover: hover) { .btn-shine:hover::after { transform: translateX(120%); } }
 
-.select-chev { background: var(--color-paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230e1726' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 1rem center / 16px; padding-right: 2.5rem; }
-.qq-flash { animation: flash 1.2s var(--ease-out-expo); }
-@keyframes flash { 0% { box-shadow: 0 0 0 0 rgb(219 0 0 / .45); } 100% { box-shadow: 0 0 0 18px rgb(219 0 0 / 0); } }
-
-.mascot { animation: mascot 6s ease-in-out infinite; transform-origin: 50% 100%; }
-@keyframes mascot { 50% { transform: translate3d(0, 14px, 0) rotate(-1.5deg); } }
-
 @media (max-width: 1023.98px) {
   .mobile-menu { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s var(--ease-out-expo); }
   .mobile-menu.is-open { grid-template-rows: 1fr; }
@@ -287,7 +226,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0ms !important; scroll-behavior: auto !important; }
-  .js [data-reveal], .intro, .js .stage .fcard, .js .stage .photo-card, .js .chip-row .diag-chip, .js .burst .city-pill { opacity: 1; transform: none; translate: none; scale: none; filter: none; clip-path: none; }
+  .js [data-reveal], .intro { opacity: 1; transform: none; }
   .js .hero-frame, .hero-photo, .scroll-progress { animation: none; }
   .scroll-progress { display: none; }
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }

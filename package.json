@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Two homepage redesign demos for Garage Door ASAP Service (Tailwind CSS v4)",
   "scripts": {
-    "build:1": "tailwindcss -i demo-1-night-shift/src/input.css -o demo-1-night-shift/styles.css --minify",
-    "build:2": "tailwindcss -i demo-2-daylight/src/input.css -o demo-2-daylight/styles.css --minify",
+    "build:1": "node scripts/inline-css.mjs demo-1-night-shift --strip && tailwindcss -i demo-1-night-shift/src/input.css -o demo-1-night-shift/styles.css --minify && node scripts/inline-css.mjs demo-1-night-shift",
+    "build:2": "node scripts/inline-css.mjs demo-2-daylight --strip && tailwindcss -i demo-2-daylight/src/input.css -o demo-2-daylight/styles.css --minify && node scripts/inline-css.mjs demo-2-daylight",
     "build": "npm run build:1 && npm run build:2",
-    "dev:1": "tailwindcss -i demo-1-night-shift/src/input.css -o demo-1-night-shift/styles.css --watch",
-    "dev:2": "tailwindcss -i demo-2-daylight/src/input.css -o demo-2-daylight/styles.css --watch"
+    "dev:1": "node scripts/inline-css.mjs demo-1-night-shift --strip && tailwindcss -i demo-1-night-shift/src/input.css -o demo-1-night-shift/styles.css --watch",
+    "dev:2": "node scripts/inline-css.mjs demo-2-daylight --strip && tailwindcss -i demo-2-daylight/src/input.css -o demo-2-daylight/styles.css --watch"
   },
   "keywords": [],
   "author": "",

@@ -33,7 +33,7 @@
     });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
   // An element that starts fully clipped (clip-path) never counts as visible, so watch its parent instead
-  $$('[data-reveal], .stage, .deck, [data-observe]').forEach((el) => {
+  $$('[data-reveal], .stage, .deal, [data-observe]').forEach((el) => {
     if (!/^(door|circle)$/.test(el.dataset.reveal || '')) return io.observe(el);
     el.parentElement.__reveal = el;
     io.observe(el.parentElement);
@@ -70,89 +70,87 @@
   }, { threshold: 0.6 });
   $$('[data-count]').forEach((el) => countIO.observe(el));
 
-  /* Services: tabs swap the scene; "Book this service" pre-fills the quote form */
-  const tabs = $$('.svc-tab');
-  const book = $('#bookService');
-  const selectTab = (i, focus) => {
-    tabs.forEach((t, j) => {
-      const on = i === j;
-      t.setAttribute('aria-selected', String(on));
-      t.tabIndex = on ? 0 : -1;
-      $('#' + t.getAttribute('aria-controls')).classList.toggle('is-active', on);
+  /* Hero: one service per slide, auto-advance every 3s. The timer is the CSS bar on the active dot;
+     it pauses with the pause button, while keyboard focus is inside, in a hidden tab, or under reduced motion. */
+  const hero = $('.hero');
+  const slides = $$('.hero-slide');
+  const bgs = $$('.hero-bg');
+  const loadBg = (k) => { const bg = bgs[k % bgs.length]; if (!bg) return; bg.querySelectorAll('[data-srcset]').forEach((el) => { el.srcset = el.dataset.srcset; el.removeAttribute('data-srcset'); });
+    const img = $('img', bg); if (img.dataset.src) { img.src = img.dataset.src; img.removeAttribute('data-src'); } };
+  const dots = $$('.hero-dot');
+  const pauseBtn = $('#heroPause');
+  let cur = 0;
+  let userPaused = reduceMotion;
+  let focusInside = false;
+  const syncPause = () => hero.classList.toggle('is-paused', userPaused || focusInside || document.hidden);
+  const show = (i) => {
+    cur = (i + slides.length) % slides.length;
+    slides.forEach((sl, k) => {
+      const on = k === cur;
+      sl.classList.toggle('is-active', on);
+      sl.setAttribute('aria-hidden', String(!on));
+      sl.inert = !on;
     });
-    if (focus) tabs[i].focus();
+    loadBg(cur); loadBg(cur + 1);
+    bgs.forEach((bg, k) => bg.classList.toggle('is-active', k === cur));
+    dots.forEach((d, k) => {
+      d.setAttribute('aria-current', String(k === cur));
+      const bar = $('span', d);
+      bar.style.animation = 'none';
+      void bar.offsetWidth; // restart the timer bar
+      bar.style.animation = '';
+    });
   };
-  tabs.forEach((t, i) => {
-    t.addEventListener('click', () => selectTab(i));
-    t.addEventListener('keydown', (e) => {
-      const dir = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
-      if (!dir) return;
-      e.preventDefault();
-      selectTab((i + dir + tabs.length) % tabs.length, true);
-    });
+  dots.forEach((d, k) => {
+    d.addEventListener('click', () => show(k));
+    $('span', d).addEventListener('animationend', () => { if (k === cur) show(cur + 1); });
   });
-  book.addEventListener('click', () => {
-    const active = tabs.find((t) => t.getAttribute('aria-selected') === 'true');
-    $('#qService').value = active.dataset.service;
-  });
-
-  /* Reviews: a deck of cards; next sends the top card to the back */
-  const cards = $$('.deck-card');
-  const num = $('#deckNum');
-  let top = 0;
-  const layout = () => {
-    cards.forEach((c, j) => {
-      const pos = (j - top + cards.length) % cards.length;
-      c.style.setProperty('--pos', pos);
-      c.setAttribute('aria-hidden', String(pos !== 0));
-    });
-    num.textContent = top + 1;
+  const setUserPaused = (on) => {
+    userPaused = on;
+    pauseBtn.setAttribute('aria-pressed', String(on));
+    pauseBtn.setAttribute('aria-label', on ? 'Play slideshow' : 'Pause slideshow');
+    $('.icon-pause', pauseBtn).classList.toggle('hidden', on);
+    $('.icon-play', pauseBtn).classList.toggle('hidden', !on);
+    syncPause();
   };
-  const step = (dir) => {
-    const leaving = cards[top];
-    if (dir > 0 && !reduceMotion) {
-      leaving.classList.add('is-out');
-      setTimeout(() => leaving.classList.remove('is-out'), 280);
-    }
-    top = (top + dir + cards.length) % cards.length;
-    setTimeout(layout, dir > 0 && !reduceMotion ? 180 : 0);
-  };
-  $('#deckNext').addEventListener('click', () => step(1));
-  $('#deckPrev').addEventListener('click', () => step(-1));
-  cards.forEach((c, j) => c.addEventListener('click', () => { if (j === top) step(1); }));
-  layout();
+  pauseBtn.addEventListener('click', () => setUserPaused(!userPaused));
+  $('#heroSlides').addEventListener('focusin', () => { focusInside = true; syncPause(); });
+  $('#heroSlides').addEventListener('focusout', () => { focusInside = false; syncPause(); });
+  document.addEventListener('visibilitychange', syncPause);
+  setUserPaused(userPaused);
+  loadBg(1); // the next photo is ready before its slide
+  // "Get a free quote" pre-fills the service in the quote form
+  $$('.js-book').forEach((a) => a.addEventListener('click', () => { $('#qService').value = a.closest('.hero-slide').dataset.service; }));
 
-  /* Service area: check a city; the map cards show the closest matches */
+  /* Service area + free quote: one form. The city dropdown lists every covered city
+     (from garagedoorasapservice.com); "not listed" opens a free-text field instead. */
   const cities = ['Orlando', 'Clermont', 'Kissimmee', 'The Villages', 'Winter Garden', 'Apopka', 'Sanford', 'Oviedo', 'Altamonte Springs', 'Leesburg', 'Winter Park', 'Ocoee', 'Winter Springs', 'Windermere', 'Davenport', 'Casselberry', 'Lake Mary', 'Longwood', 'Pine Hills', 'Groveland', 'Minneola', 'Eustis', 'Maitland', 'Doctor Phillips', 'Mount Dora', 'Wildwood', 'Deltona', 'DeBary', 'Tavares', 'Saint Cloud', 'Fruitland Park', 'Umatilla', 'Sorrento', 'Lockhart', 'Lady Lake', 'Hunters Creek', 'Coleman', 'Mascotte', 'Grand Island', 'Webster', 'Montverde', 'Howey-in-the-Hills', 'Bushnell', 'Astatula', 'Fairview Shores', 'Center Hill', 'Heathrow', 'Gotha', 'Oakland', 'Buena Ventura Lakes', 'Belle Isle', 'Meadow Woods', 'Azalea Park', 'Poinciana', 'Oak Ridge', 'Union Park', 'Ormond Beach', 'Ormond by the Sea', 'Daytona Beach', 'Holly Hill', 'Port Orange', 'Edgewater', 'New Smyrna Beach', 'Orange City', 'Palm Coast', 'South Daytona', 'DeLand', 'Ponce Inlet', 'Lake Helen', 'Melbourne', 'Rockledge', 'Titusville', 'Flagler Beach'];
-  $('#cityOptions').innerHTML = cities.map((c) => `<option value="${c}"></option>`).join('');
-  const norm = (s) => s.toLowerCase().replace(/\bst\.?\s/g, 'saint ').replace(/-/g, ' ').replace(/[^a-z ]/g, '').replace(/\s+/g, ' ').trim();
+  const citySel = $('#qCity');
+  const OTHER = '__other';
+  citySel.insertAdjacentHTML('beforeend',
+    `<optgroup label="Cities we cover">${[...cities].sort((x, y) => x.localeCompare(y)).map((c) => `<option>${c}</option>`).join('')}</optgroup>` +
+    `<option value="${OTHER}">My city isn't listed</option>`);
+  const otherWrap = $('#qOtherWrap');
+  const other = $('#qOther');
+
+  // The map cards echo the chosen city
   const cityCards = $$('.city-card');
   const defaults = cityCards.map((c) => $('.fcard-title', c).textContent);
-  const showCities = (names, hit) => cityCards.forEach((c, i) => {
-    const name = names[i] || defaults[i];
-    $('.fcard-title', c).textContent = name;
-    c.classList.toggle('is-hit', name === hit);
+  const showCity = (name, covered) => cityCards.forEach((c, i) => {
+    const hit = i === 0 && name;
+    $('.fcard-title', c).textContent = hit ? name : defaults[i];
+    $('.fcard-text', c).textContent = hit && !covered ? "We'll check" : 'Covered';
+    c.classList.toggle('is-hit', Boolean(hit));
   });
-  const input = $('#cityInput');
-  input.addEventListener('input', () => {
-    const q = norm(input.value);
-    showCities(q ? cities.filter((c) => norm(c).includes(q)).slice(0, 4) : defaults);
+
+  citySel.addEventListener('change', () => {
+    const notListed = citySel.value === OTHER;
+    otherWrap.hidden = !notListed;
+    other.required = notListed;
+    if (notListed) { other.focus(); showCity('', false); }
+    else showCity(citySel.value, true);
   });
-  const result = $('#cityResult');
-  $('#cityCheck').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const raw = input.value.trim();
-    if (!raw) { result.className = 'mt-3 min-h-6 text-sm font-semibold text-zinc-400'; result.textContent = 'Type your city to check.'; input.focus(); return; }
-    const found = cities.find((c) => norm(c) === norm(raw));
-    if (found) {
-      showCities([found, ...cities.filter((c) => c !== found && norm(c).includes(norm(raw)))].slice(0, 4), found);
-      result.className = 'mt-3 min-h-6 text-sm font-semibold text-emerald-400';
-      result.textContent = `✓ Yes, we cover ${found}.`;
-    } else {
-      result.className = 'mt-3 min-h-6 text-sm font-semibold text-amber-300';
-      result.innerHTML = `${raw.replace(/[<>&"]/g, '')} isn't listed yet. <a href="tel:8777877121" class="underline underline-offset-4">Call us</a>, we may still cover you.`;
-    }
-  });
+  other.addEventListener('input', () => showCity(other.value.trim(), false));
 
   /* Demo quote form */
   const form = $('#quoteForm');
@@ -162,6 +160,11 @@
     const invalid = required.filter((f) => !f.value.trim());
     required.forEach((f) => f.setAttribute('aria-invalid', String(invalid.includes(f))));
     if (invalid.length) { invalid[0].focus(); return; }
+    const notListed = citySel.value === OTHER;
+    const city = (notListed ? other.value.trim() : citySel.value).replace(/[<>&"]/g, '');
+    $('.quote-msg', form).textContent = notListed
+      ? `Thanks! We'll check whether we can reach ${city} and call you back.`
+      : `Thanks! A technician near ${city} will call you shortly.`;
     const btn = $('button[type="submit"]', form);
     btn.disabled = true;
     $('.btn-label', btn).textContent = 'Sending…';

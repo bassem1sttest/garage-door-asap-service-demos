@@ -8,10 +8,10 @@ Two homepage redesign concepts for garagedoorasapservice.com, built with Tailwin
 
 | Demo | Style | Sections and motion |
 |------|-------|---------------------|
-| `demo-1-night-shift/` | Bold and industrial. Archivo Wide, sharp corners, brand red `#db0000`. Dark and light sections alternate, and each has its own layout. | Hero: a garage door rolls up over a photo of real garage doors · Services (light): service menu + a scene that swaps, revealed by slats rolling up · About (dark): full-bleed crew banner, cards rise like door panels · Reviews (light): a card deck that is dealt in and flipped · Areas (dark): city search on a map, cities fly out of the HQ pin · FAQ (light): numbered cards that slide in · Free quote (dark): the form opens like a garage door |
-| `demo-2-daylight/` | Soft and friendly. Plus Jakarta Sans, rounded tinted panels with thin arcs, floating pill header. | Hero: rotating question + quick quote · Services: pick a symptom to see the likely cause and fix, chips pop in on a spring · About: photo spins in, cards slide in from the sides · Reviews: auto-playing quotes that come into focus · Areas: city pills fly out of the HQ pin · FAQ: questions unfold · Final CTA: the panel opens as a growing circle |
+| `demo-1-night-shift/` | Bold and industrial. Archivo Wide, sharp corners, brand red `#db0000`. Dark and light sections alternate, and each has its own layout. | Hero (dark): a full-screen slider, one service per slide with its own photo, changing every 3 seconds (pause button, dots) · About (light): crew photo + three cards · Reviews (dark): three review cards dealt into place · FAQ (light): numbered cards that slide in · Free quote (dark): service area map + a quote form with a city dropdown, which opens like a garage door |
+| `demo-2-daylight/` | Light, friendly, editorial. Plus Jakarta Sans, soft 28px radii, floating pill header. | Photo-collage hero with word rotator and quick quote · services bento with real part photos · "What's your door doing?" diagnosis tool with a photo per symptom · 29-point tune-up checklist · crew photo with stats · autoplay reviews · city checker and marquee · FAQ · Mr. ASAP mascot CTA |
 
-## Content rules
+## Content rules (Night Shift)
 
 - **Each fact appears once per page.** The rating lives only in Reviews, the 30 years and the lifetime warranty only in About, the city count only in Areas, financing only in the quote section.
 - Headings are at most two lines and descriptions at most three, on desktop, laptop and phone.
@@ -24,19 +24,20 @@ Two homepage redesign concepts for garagedoorasapservice.com, built with Tailwin
 - About: family-owned, 30 years, lifetime warranty on all parts, American-made when available, lower overhead than franchises
 - Reviews (Carole Engels, Joann Deronda, Margaret Black), 5.0 from 600 reviews
 - The full city list (73 cities) and 6 counties
-- Brand assets: Mr. ASAP mascot, wordmark, "We Finance" badge, and the garage-door hero photo
+- Brand assets: Mr. ASAP mascot and wordmark
 
 ## Images (`assets/img/`)
 
 Self-hosted and resized for their slot. Large photos ship as AVIF first (through `<picture>`), with WebP as the fallback.
 
-- **Company photos** from the live site: the hero with two white garage doors (`hero-doors`), crew and trucks, technician at work, before/after shifted door, springs, openers, rollers, logo and mascot.
-- **License-free photos** from Unsplash: `home-two-garage`, `home-modern-dusk`, `tools-wall`.
+- Photos are matched to the service they show (springs, openers, rollers, shifted doors, tune-ups), and no image carries a credit, watermark or source name.
+- Photos that only show at large sizes keep their real width in `srcset`, so the browser never picks an upscaled file.
 
 ## Performance
 
-- No third-party requests. Fonts are self-hosted variable WOFF2 files trimmed to the characters, weights and widths each design uses (Archivo 52 KB, Plus Jakarta Sans 24 KB), and preloaded.
-- The hero image is preloaded as AVIF with `fetchpriority="high"` and a responsive `srcset`.
+- No third-party requests. Fonts are self-hosted variable WOFF2 files trimmed to the characters, weights and widths each design uses (Archivo 32 KB, Plus Jakarta Sans 12 KB), and preloaded.
+- The built CSS is placed inside each `index.html` (`<style data-inline>`), so the first paint needs no extra request. `npm run build` does this; `src/input.css` stays the file to edit.
+- Only the first hero photo loads up front; each slider photo loads one slide ahead. The hero image is preloaded as AVIF with `fetchpriority="high"` and a responsive `srcset`.
 - Images below the fold use `loading="lazy"` and `decoding="async"` and declare `width`/`height`, so the layout doesn't shift (CLS 0).
 - Animations only use `transform`, `opacity` and `clip-path`, and are turned off under `prefers-reduced-motion`. No backdrop blur on opaque cards.
 - Measured on a phone profile over slow 4G: the main content appears in about 1.5 s, with no console errors.
@@ -47,7 +48,7 @@ Self-hosted and resized for their slot. Large photos ship as AVIF first (through
 npm install
 npm run dev:1     # watch demo 1
 npm run dev:2     # watch demo 2
-npm run build     # minified build of both
+npm run build     # minified build of both, with the CSS placed inside each page
 ```
 
 Source CSS lives in each demo's `src/input.css` (theme tokens, components and the "Section animations" block).
