@@ -59,12 +59,12 @@
    ====================================================================== */
 .theme-dark {
   --fg: #fff; --muted: #a1a1aa; --line: rgb(255 255 255 / .1);
-  --surface: var(--color-ink-900); --card: rgb(22 22 26 / .92); --chip: rgb(255 255 255 / .05);
+  --surface: var(--color-ink-900); --card: rgb(22 22 26 / .92);
   background: var(--color-ink-950); color: #d4d4d8;
 }
 .theme-light {
   --fg: var(--color-ink-950); --muted: #52525b; --line: rgb(9 9 11 / .1);
-  --surface: #fff; --card: #fff; --chip: rgb(9 9 11 / .04);
+  --surface: #fff; --card: #fff;
   background: var(--color-bone); color: #3f3f46; color-scheme: light;
 }
 
@@ -293,7 +293,6 @@ html:not(.js) .slide-in { opacity: 1; transform: none; }
   appearance: none; padding-right: 2rem; cursor: pointer;
   background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2309090b' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right .625rem center / 16px;
 }
-.select:invalid { color: #71717a; }
 .field-label { display: block; margin-bottom: .375rem; font-size: .875rem; font-weight: 700; color: var(--color-ink-950); }
 
 /* Dropdown lists (city + service): white panel under the field, 44px rows, typed letters in bold */

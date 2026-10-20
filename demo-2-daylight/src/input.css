@@ -104,7 +104,7 @@
 @keyframes grow { to { transform: scaleX(1); } }
 
 /* ---------- Word rotator ---------- */
-.rotator { display: inline-grid; vertical-align: bottom; overflow: hidden; height: 1.08em; transition: width .6s var(--ease-out-expo); }
+.rotator { display: inline-grid; vertical-align: bottom; overflow: hidden; height: 1.08em; }
 .rotator > span {
   grid-area: 1 / 1; line-height: 1.08; justify-self: start; white-space: nowrap;
   transform: translate3d(0, 105%, 0); opacity: 0;

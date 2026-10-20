@@ -126,10 +126,10 @@
      (from garagedoorasapservice.com), and any other city can be typed and sent. */
   const cities = ['Orlando', 'Clermont', 'Kissimmee', 'The Villages', 'Winter Garden', 'Apopka', 'Sanford', 'Oviedo', 'Altamonte Springs', 'Leesburg', 'Winter Park', 'Ocoee', 'Winter Springs', 'Windermere', 'Davenport', 'Casselberry', 'Lake Mary', 'Longwood', 'Pine Hills', 'Groveland', 'Minneola', 'Eustis', 'Maitland', 'Doctor Phillips', 'Mount Dora', 'Wildwood', 'Deltona', 'DeBary', 'Tavares', 'Saint Cloud', 'Fruitland Park', 'Umatilla', 'Sorrento', 'Lockhart', 'Lady Lake', 'Hunters Creek', 'Coleman', 'Mascotte', 'Grand Island', 'Webster', 'Montverde', 'Howey-in-the-Hills', 'Bushnell', 'Astatula', 'Fairview Shores', 'Center Hill', 'Heathrow', 'Gotha', 'Oakland', 'Buena Ventura Lakes', 'Belle Isle', 'Meadow Woods', 'Azalea Park', 'Poinciana', 'Oak Ridge', 'Union Park', 'Ormond Beach', 'Ormond by the Sea', 'Daytona Beach', 'Holly Hill', 'Port Orange', 'Edgewater', 'New Smyrna Beach', 'Orange City', 'Palm Coast', 'South Daytona', 'DeLand', 'Ponce Inlet', 'Lake Helen', 'Melbourne', 'Rockledge', 'Titusville', 'Flagler Beach'];
   /* Dropdown fields (ARIA combobox): 4–5 rows show and the rest scroll, and the list always opens downward.
-     If the room left below the field inside the form is under 4 rows, the list opens in place and
-     pushes the fields below it down, so it never sticks out of the form.
+     The list stops 8px above the form's bottom edge, so it never sticks out of the form. With inPlace,
+     a field with under 4 rows of room opens its list in place instead and pushes the fields below it down.
      The city field is searchable, and a city outside the list can still be sent: we check it and call back. */
-  const combo = (input, items, { search = false, onChange = () => {} } = {}) => {
+  const combo = (input, items, { search = false, inPlace = true, onChange = () => {} } = {}) => {
     const list = document.getElementById(input.getAttribute('aria-controls'));
     const hint = search ? document.getElementById(input.dataset.hint) : null;
     const count = search ? document.getElementById(input.dataset.count) : null;
@@ -166,15 +166,15 @@
       if (count) count.textContent = q && !exact ? `${hits.length} ${hits.length === 1 ? 'city matches' : 'cities match'}` : '';
       return exact ? hits.indexOf(exact) : q ? 0 : -1;
     };
-    // 4.5 rows (the half row shows there is more); overlay when 4+ rows fit in the form, else open in place
+    // 4.5 rows (the half row shows there is more), or as many as fit above the form's bottom edge
     const fit = () => {
       list.classList.remove('is-inline');
       list.style.maxHeight = '';
       const row = list.querySelector('.combo-opt')?.offsetHeight || 44;
       const pad = list.offsetHeight - list.clientHeight + parseFloat(getComputedStyle(list).paddingTop) * 2;
       const want = Math.min(row * 4.5 + pad, list.scrollHeight + pad);
-      const room = form.getBoundingClientRect().bottom - parseFloat(getComputedStyle(form).paddingBottom) - list.getBoundingClientRect().top;
-      const inline = room < Math.min(row * 4 + pad, want);
+      const room = form.getBoundingClientRect().bottom - 8 - list.getBoundingClientRect().top;
+      const inline = inPlace && room < Math.min(row * 4 + pad, want);
       list.classList.toggle('is-inline', inline);
       list.style.maxHeight = `${Math.floor(inline ? want : Math.min(want, room))}px`;
     };
@@ -256,7 +256,7 @@
 
   const cityIn = $('#qCity');
   const isCovered = combo(cityIn, [...cities].sort((x, y) => x.localeCompare(y)), { search: true, onChange: showCity });
-  combo($('#qService'), ['Spring replacement', 'Opener repair', 'Opener replacement', 'Roller replacement', 'Shifted door repair', 'General maintenance', 'Not sure yet']);
+  combo($('#qService'), ['Spring replacement', 'Opener repair', 'Opener replacement', 'Roller replacement', 'Shifted door repair', 'General maintenance', 'Not sure yet'], { inPlace: false });
 
   /* Demo quote form */
   const form = $('#quoteForm');

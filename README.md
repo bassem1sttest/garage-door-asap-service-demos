@@ -36,7 +36,7 @@ Self-hosted and resized for their slot. Large photos ship as AVIF first (through
 ## Performance
 
 - No third-party requests. Fonts are self-hosted variable WOFF2 files trimmed to the characters, weights and widths each design uses (Archivo 32 KB, Plus Jakarta Sans 12 KB), and preloaded.
-- The built CSS is placed inside each `index.html` (`<style data-inline>`), so the first paint needs no extra request. `npm run build` does this; `src/input.css` stays the file to edit, and the intermediate `styles.css` is not committed.
+- The built CSS and the minified JS (esbuild) are placed inside each `index.html` (`<style data-inline>`, `<script data-inline>` at the end of `<body>`), so a page needs no extra request for them. `npm run build` does this through `scripts/inline-assets.mjs`; `src/input.css` and `main.js` stay the files to edit, and the intermediate `styles.css` is not committed.
 - Only the first hero photo loads up front; each slider photo loads one slide ahead. The hero image is preloaded as AVIF with `fetchpriority="high"` and a responsive `srcset`.
 - Images below the fold use `loading="lazy"` and `decoding="async"` and declare `width`/`height`, so the layout doesn't shift (CLS 0).
 - Animations only use `transform`, `opacity` and `clip-path`, and are turned off under `prefers-reduced-motion`. No backdrop blur on opaque cards.
@@ -48,7 +48,7 @@ Self-hosted and resized for their slot. Large photos ship as AVIF first (through
 npm install
 npm run dev:1     # watch demo 1
 npm run dev:2     # watch demo 2
-npm run build     # minified build of both, with the CSS placed inside each page
+npm run build     # minified build of both, with the CSS and JS placed inside each page
 ```
 
 Source CSS lives in each demo's `src/input.css` (theme tokens, components and the "Section animations" block).
