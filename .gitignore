@@ -3,5 +3,6 @@ node_modules/
 Thumbs.db
 *.log
 assets/img/incoming/
-demo-1-night-shift-backup-2026-10-19/
 photos/
+demo-1-night-shift/styles.css
+demo-2-daylight/styles.css

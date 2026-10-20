@@ -60,13 +60,11 @@
 .theme-dark {
   --fg: #fff; --muted: #a1a1aa; --line: rgb(255 255 255 / .1);
   --surface: var(--color-ink-900); --card: rgb(22 22 26 / .92); --chip: rgb(255 255 255 / .05);
-  --arc: rgb(255 255 255 / .07);
   background: var(--color-ink-950); color: #d4d4d8;
 }
 .theme-light {
   --fg: var(--color-ink-950); --muted: #52525b; --line: rgb(9 9 11 / .1);
   --surface: #fff; --card: #fff; --chip: rgb(9 9 11 / .04);
-  --arc: rgb(9 9 11 / .07);
   background: var(--color-bone); color: #3f3f46; color-scheme: light;
 }
 
@@ -78,11 +76,6 @@
   html { scroll-snap-type: y proximity; }
   .fit { min-height: calc(100svh - var(--nav)); display: flex; flex-direction: column; justify-content: center; scroll-snap-align: start; }
 }
-/* Visual panels size by screen height, never by width */
-.stage-fit { height: min(40svh, 330px); }
-@media (min-width: 640px) { .stage-fit { height: min(52svh, 440px); } }
-/* Capped so the visual stays in proportion with the text beside it */
-@media (min-width: 1024px) { .stage-fit { height: clamp(320px, calc(100svh - var(--nav) - var(--stage-offset, 8rem)), 500px); } }
 
 @layer components {
   .tag {
@@ -127,7 +120,6 @@
     border: 1px solid var(--line); background: var(--card);
     padding: 1rem 1.15rem; box-shadow: 0 24px 50px -22px rgb(0 0 0 / .55);
   }
-  .fcard--accent { box-shadow: 0 6px 0 var(--color-brand-600), 0 24px 50px -22px rgb(0 0 0 / .55); }
 }
 .fcard-title { font-weight: 800; color: var(--fg); }
 .fcard-text { margin-top: .25rem; font-size: .875rem; line-height: 1.5; color: var(--muted); }
@@ -144,9 +136,6 @@
 .js [data-reveal].is-in { opacity: 1; transform: none; }
 
 /* ---------- Hero ---------- */
-.word { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .06em; margin-bottom: -.06em; }
-.word > span { display: inline-block; transform: translate3d(0, 110%, 0); animation: rise .8s var(--ease-out-expo) forwards; animation-delay: calc(280ms + var(--i, 0) * 60ms); }
-@keyframes rise { to { transform: none; } }
 
 .fade-up { opacity: 0; animation: fadeUp .7s var(--ease-out-expo) forwards; animation-delay: calc(var(--i, 0) * 70ms + 420ms); }
 @keyframes fadeUp { from { opacity: 0; transform: translate3d(0, 14px, 0); } to { opacity: 1; transform: none; } }
@@ -198,14 +187,6 @@
   transition: transform .5s var(--ease-out-expo);
 }
 .stage-bg { position: absolute; inset: 0; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
-.stage-arcs::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-radial-gradient(circle at 100% 100%, transparent 0 71px, var(--arc) 71px 72px);
-  mask-image: radial-gradient(circle at 100% 100%, #000 25%, transparent 80%);
-}
-.stage-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.theme-dark .stage-photo { filter: brightness(.55) saturate(.85); }
-.stage-photo--product { inset: 10% 30% 26% 22%; width: auto; height: auto; max-width: 48%; max-height: 64%; margin: auto; object-fit: contain; filter: drop-shadow(0 24px 30px rgb(0 0 0 / .25)); }
 
 .js .stage .fcard { opacity: 0; transform: translate3d(0, 22px, 0); transition: opacity .55s ease, transform .7s var(--ease-out-expo); transition-delay: calc(var(--k, 0) * 110ms + 120ms); }
 .js .stage.is-in > .fcard { opacity: 1; transform: none; }
@@ -232,7 +213,6 @@ html:not(.js) .slide-in { opacity: 1; transform: none; }
 @media (hover: hover) { .hero-dot:hover span { background: rgb(255 255 255 / .6); } }
 
 /* ---------- About banner: glass cards on the photo ---------- */
-.glass { border: 1px solid rgb(255 255 255 / .12); background: rgb(9 9 11 / .62); backdrop-filter: blur(14px); }
 .glass-light { border: 1px solid rgb(9 9 11 / .1); background: rgb(255 255 255 / .9); box-shadow: 0 20px 40px -26px rgb(9 9 11 / .35); }
 
 /* ---------- Service-area map ---------- */
@@ -316,6 +296,21 @@ html:not(.js) .slide-in { opacity: 1; transform: none; }
 .select:invalid { color: #71717a; }
 .field-label { display: block; margin-bottom: .375rem; font-size: .875rem; font-weight: 700; color: var(--color-ink-950); }
 
+/* Dropdown lists (city + service): white panel under the field, 44px rows, typed letters in bold */
+.combo-input { cursor: text; }
+.combo-input--select { cursor: pointer; caret-color: transparent; }
+.combo-list.is-inline { position: relative; top: auto; margin-top: 4px; }
+.combo-list {
+  position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 20; overflow-y: auto; overscroll-behavior: contain;
+  border: 1px solid rgb(9 9 11 / .45); background: #fff; box-shadow: 0 20px 40px -18px rgb(9 9 11 / .5);
+}
+.combo-opt { display: flex; align-items: center; min-height: 2.75rem; padding: .5rem 1rem; color: var(--color-ink-950); font-weight: 500; cursor: pointer; }
+.combo-opt mark { background: none; color: inherit; font-weight: 800; }
+.combo-opt.is-active { background: #fff1f1; box-shadow: inset 3px 0 0 var(--color-brand-600); }
+@media (hover: hover) { .combo-opt:hover { background: #fff1f1; } }
+.combo-opt[aria-selected="true"] { color: var(--color-brand-700); font-weight: 700; }
+.combo-opt--custom { border-top: 1px solid rgb(9 9 11 / .1); color: var(--color-brand-700); font-weight: 700; }
+
 /* Mobile action bar sits above the home indicator on notched phones */
 .safe-bottom { padding-bottom: calc(.75rem + env(safe-area-inset-bottom)); }
 
@@ -327,6 +322,6 @@ html:not(.js) .slide-in { opacity: 1; transform: none; }
   .slide-in { opacity: 1; }
   .js [data-reveal], .js .stage .fcard, .js .deal .deal-card, .js .burst .city-card { opacity: 1; transform: none; clip-path: none; }
   .js .about-bg { transform: none; }
-  .word > span, .fade-up { transform: none; opacity: 1; }
+  .fade-up { transform: none; opacity: 1; }
   .stage { transform: none; }
 }

@@ -8,8 +8,8 @@ Two homepage redesign concepts for garagedoorasapservice.com, built with Tailwin
 
 | Demo | Style | Sections and motion |
 |------|-------|---------------------|
-| `demo-1-night-shift/` | Bold and industrial. Archivo Wide, sharp corners, brand red `#db0000`. Dark and light sections alternate, and each has its own layout. | Hero (dark): a full-screen slider, one service per slide with its own photo, changing every 3 seconds (pause button, dots) · About (light): crew photo + three cards · Reviews (dark): three review cards dealt into place · FAQ (light): numbered cards that slide in · Free quote (dark): service area map + a quote form with a city dropdown, which opens like a garage door |
-| `demo-2-daylight/` | Light, friendly, editorial. Plus Jakarta Sans, soft 28px radii, floating pill header. | Photo-collage hero with word rotator and quick quote · services bento with real part photos · "What's your door doing?" diagnosis tool with a photo per symptom · 29-point tune-up checklist · crew photo with stats · autoplay reviews · city checker and marquee · FAQ · Mr. ASAP mascot CTA |
+| `demo-1-night-shift/` | Bold and industrial. Archivo Wide, sharp corners, brand red `#db0000`. Dark and light sections alternate, and each has its own layout. | Hero (dark): a full-screen slider, one service per slide with its own photo, changing every 3 seconds (pause button, dots) · About (light): crew photo + three cards · Reviews (dark): three review cards dealt into place · FAQ (light): numbered cards that slide in · Free quote (dark): service area map + a quote form (searchable city list, service list), which opens like a garage door |
+| `demo-2-daylight/` | Light, friendly, editorial. Plus Jakarta Sans, soft 28px radii, floating pill header. | Hero photo with a Google rating line and a quick-quote bar · guarantees · specialties with the Mr. ASAP mascot · how it works · service cards that switch to an "after" photo on hover (and by themselves on touch screens) · about · reviews · booking form · FAQ · call-now panel |
 
 ## Content rules (Night Shift)
 
@@ -36,7 +36,7 @@ Self-hosted and resized for their slot. Large photos ship as AVIF first (through
 ## Performance
 
 - No third-party requests. Fonts are self-hosted variable WOFF2 files trimmed to the characters, weights and widths each design uses (Archivo 32 KB, Plus Jakarta Sans 12 KB), and preloaded.
-- The built CSS is placed inside each `index.html` (`<style data-inline>`), so the first paint needs no extra request. `npm run build` does this; `src/input.css` stays the file to edit.
+- The built CSS is placed inside each `index.html` (`<style data-inline>`), so the first paint needs no extra request. `npm run build` does this; `src/input.css` stays the file to edit, and the intermediate `styles.css` is not committed.
 - Only the first hero photo loads up front; each slider photo loads one slide ahead. The hero image is preloaded as AVIF with `fetchpriority="high"` and a responsive `srcset`.
 - Images below the fold use `loading="lazy"` and `decoding="async"` and declare `width`/`height`, so the layout doesn't shift (CLS 0).
 - Animations only use `transform`, `opacity` and `clip-path`, and are turned off under `prefers-reduced-motion`. No backdrop blur on opaque cards.
@@ -56,4 +56,5 @@ Source CSS lives in each demo's `src/input.css` (theme tokens, components and th
 ## Notes
 
 - Forms are demo-only (no backend). Wire them to your form handler or CRM.
+- Every dropdown is the same accessible list (ARIA combobox, shared code in both `main.js` files): 4–5 rows show and the rest scroll, it always opens downward and never sticks out of its form (with no room below, it opens in place and pushes the fields down). The city field is searchable, and a city outside the list can still be sent.
 - The phone fields always show at least 16 digits.
