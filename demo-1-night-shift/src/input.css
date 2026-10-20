@@ -254,6 +254,8 @@ html:not(.js) .slide-in { opacity: 1; transform: none; }
 .js [data-reveal="lift"] { transform: translate3d(0, 80px, 0); transition-duration: .5s, 1s; }
 .js [data-reveal="door"] { transform: none; clip-path: inset(100% 0 0 0); transition: clip-path 1.1s var(--ease-door), opacity .2s; }
 .js [data-reveal="door"].is-in { clip-path: inset(0); }
+/* Once open, drop the clip so dropdown lists can overlay past the form's edge */
+.js [data-reveal="door"].is-in.is-settled { clip-path: none; }
 
 /* About: the crew photo slowly settles while the cards rise like door panels */
 .js .about-bg { transform: scale(1.18); transition: transform 2.6s var(--ease-out-expo); }
@@ -298,7 +300,6 @@ html:not(.js) .slide-in { opacity: 1; transform: none; }
 /* Dropdown lists (city + service): white panel under the field, 44px rows, typed letters in bold */
 .combo-input { cursor: text; }
 .combo-input--select { cursor: pointer; caret-color: transparent; }
-.combo-list.is-inline { position: relative; top: auto; margin-top: 4px; }
 .combo-list {
   position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 20; overflow-y: auto; overscroll-behavior: contain;
   border: 1px solid rgb(9 9 11 / .45); background: #fff; box-shadow: 0 20px 40px -18px rgb(9 9 11 / .5);

@@ -125,15 +125,13 @@
   /* Service area + free quote: one form. The city field lists every covered city
      (from garagedoorasapservice.com), and any other city can be typed and sent. */
   const cities = ['Orlando', 'Clermont', 'Kissimmee', 'The Villages', 'Winter Garden', 'Apopka', 'Sanford', 'Oviedo', 'Altamonte Springs', 'Leesburg', 'Winter Park', 'Ocoee', 'Winter Springs', 'Windermere', 'Davenport', 'Casselberry', 'Lake Mary', 'Longwood', 'Pine Hills', 'Groveland', 'Minneola', 'Eustis', 'Maitland', 'Doctor Phillips', 'Mount Dora', 'Wildwood', 'Deltona', 'DeBary', 'Tavares', 'Saint Cloud', 'Fruitland Park', 'Umatilla', 'Sorrento', 'Lockhart', 'Lady Lake', 'Hunters Creek', 'Coleman', 'Mascotte', 'Grand Island', 'Webster', 'Montverde', 'Howey-in-the-Hills', 'Bushnell', 'Astatula', 'Fairview Shores', 'Center Hill', 'Heathrow', 'Gotha', 'Oakland', 'Buena Ventura Lakes', 'Belle Isle', 'Meadow Woods', 'Azalea Park', 'Poinciana', 'Oak Ridge', 'Union Park', 'Ormond Beach', 'Ormond by the Sea', 'Daytona Beach', 'Holly Hill', 'Port Orange', 'Edgewater', 'New Smyrna Beach', 'Orange City', 'Palm Coast', 'South Daytona', 'DeLand', 'Ponce Inlet', 'Lake Helen', 'Melbourne', 'Rockledge', 'Titusville', 'Flagler Beach'];
-  /* Dropdown fields (ARIA combobox): 4–5 rows show and the rest scroll, and the list always opens downward.
-     The list stops 8px above the form's bottom edge, so it never sticks out of the form. With inPlace,
-     a field with under 4 rows of room opens its list in place instead and pushes the fields below it down.
+  /* Dropdown fields (ARIA combobox): the list opens downward as an overlay, so the form and the page never move.
+     4.5 rows show (the half row tells there is more) and the rest scroll.
      The city field is searchable, and a city outside the list can still be sent: we check it and call back. */
-  const combo = (input, items, { search = false, inPlace = true, onChange = () => {} } = {}) => {
+  const combo = (input, items, { search = false, onChange = () => {} } = {}) => {
     const list = document.getElementById(input.getAttribute('aria-controls'));
     const hint = search ? document.getElementById(input.dataset.hint) : null;
     const count = search ? document.getElementById(input.dataset.count) : null;
-    const form = input.form;
     const match = (v) => items.find((c) => c.toLowerCase() === v.trim().toLowerCase());
     const isOpen = () => input.getAttribute('aria-expanded') === 'true';
     let active = -1;
@@ -166,17 +164,12 @@
       if (count) count.textContent = q && !exact ? `${hits.length} ${hits.length === 1 ? 'city matches' : 'cities match'}` : '';
       return exact ? hits.indexOf(exact) : q ? 0 : -1;
     };
-    // 4.5 rows (the half row shows there is more), or as many as fit above the form's bottom edge
+    // 4.5 rows, or fewer when fewer options match
     const fit = () => {
-      list.classList.remove('is-inline');
       list.style.maxHeight = '';
       const row = list.querySelector('.combo-opt')?.offsetHeight || 44;
       const pad = list.offsetHeight - list.clientHeight + parseFloat(getComputedStyle(list).paddingTop) * 2;
-      const want = Math.min(row * 4.5 + pad, list.scrollHeight + pad);
-      const room = form.getBoundingClientRect().bottom - 8 - list.getBoundingClientRect().top;
-      const inline = inPlace && room < Math.min(row * 4 + pad, want);
-      list.classList.toggle('is-inline', inline);
-      list.style.maxHeight = `${Math.floor(inline ? want : Math.min(want, room))}px`;
+      list.style.maxHeight = `${Math.floor(Math.min(row * 4.5 + pad, list.scrollHeight + pad))}px`;
     };
     const setActive = (i) => {
       active = i;
@@ -203,7 +196,7 @@
       setActive(start);
       reveal();
     };
-    const close = () => { list.hidden = true; list.classList.remove('is-inline'); input.setAttribute('aria-expanded', 'false'); setActive(-1); };
+    const close = () => { list.hidden = true; input.setAttribute('aria-expanded', 'false'); setActive(-1); };
     const commit = () => {
       const typed = input.value.trim(), exact = match(typed);
       if (exact) input.value = exact;
@@ -256,7 +249,7 @@
 
   const cityIn = $('#qCity');
   const isCovered = combo(cityIn, [...cities].sort((x, y) => x.localeCompare(y)), { search: true, onChange: showCity });
-  combo($('#qService'), ['Spring replacement', 'Opener repair', 'Opener replacement', 'Roller replacement', 'Shifted door repair', 'General maintenance', 'Not sure yet'], { inPlace: false });
+  combo($('#qService'), ['Spring replacement', 'Opener repair', 'Opener replacement', 'Roller replacement', 'Shifted door repair', 'General maintenance', 'Not sure yet']);
 
   /* Demo quote form */
   const form = $('#quoteForm');

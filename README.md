@@ -56,5 +56,5 @@ Source CSS lives in each demo's `src/input.css` (theme tokens, components and th
 ## Notes
 
 - Forms are demo-only (no backend). Wire them to your form handler or CRM.
-- Every dropdown is the same accessible list (ARIA combobox, shared code in both `main.js` files): 4–5 rows show and the rest scroll, it always opens downward and never sticks out of its form (with no room below, it opens in place and pushes the fields down). The city field is searchable, and a city outside the list can still be sent.
+- Every dropdown is the same accessible list (ARIA combobox, shared code in both `main.js` files): it always opens downward as an overlay, so the form and the page never move; 4.5 rows show and the rest scroll. The city field is searchable, and a city outside the list can still be sent.
 - The phone fields always show at least 16 digits.
